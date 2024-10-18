@@ -1,0 +1,15 @@
+wheel
+pandas==2.2.2
+mlflow==2.15.1
+mlflavors==0.1.0
+ipykernel
+requests==2.32.3
+plotly==5.23.0
+nbformat
+ipywidgets
+jupyter 
+statsforecast==1.7.6
+mlforecast==0.13.3
+lightgbm
+xgboost
+scikit-learn
