@@ -13,3 +13,4 @@ mlforecast==0.13.3
 lightgbm
 xgboost
 scikit-learn
+great_tables==0.13.0

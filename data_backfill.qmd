@@ -2,7 +2,7 @@
 title: "Data Backfill"
 format:
   html:
-    code-fold: true
+    code-fold: false
 jupyter: python3
 ---
 
@@ -26,10 +26,11 @@ import os
 import datetime
 import plotly.express as px
 import plotly.graph_objects as go
+from great_tables import GT
 ```
 
 
-
+Load settings:
 ```{python}
 raw_json = open("./settings/settings.json")
 meta_json = json.load(raw_json)
@@ -65,7 +66,7 @@ data_path = meta_json["data_path"]
 series_mapping_path = meta_json["series_mapping_path"]
 ```
 
-
+Pull the series metadata from the API
 ```{python}
 metadata = api.eia_metadata(api_key = eia_api_key, api_path = api_path)
 print(metadata.meta.keys())
@@ -112,12 +113,12 @@ meta.reset_index(drop=True, inplace=True)
 
 
 ```{python}
-print(meta)
+GT(meta)
 # The initial pull has some missing values
 
 print("Missing Values:" , data["value"].isna().sum())
 
-data.head()
+GT(data.head(10))
 ```
 
 
@@ -132,29 +133,29 @@ def impute_missing(input, var, index):
             self.data = data
             self.missing_index = missing_index
             self.num_imputed = num_imputed
-
-    input["impute"] = np.NaN
-    input = input.sort_values(by = [index])
-    missing_index = input[input[var].isnull()].index.tolist()
-    non_missing_index = input.index.difference(missing_index).tolist()
+    df = input.copy()
+    df.loc[:,"impute"] = np.NaN
+    df = df.sort_values(by = [index])
+    missing_index = df[df[var].isnull()].index.tolist()
+    non_missing_index = df.index.difference(missing_index).tolist()
     num_imputed = 0
     for i in missing_index:
         if i > 336:
-            input.loc[i ,"impute"] = (input.loc[i - 336 ,var] + input.loc[i - 168 ,var] + input.loc[i - 24 ,var]) / 3
+            df.loc[i ,"impute"] = (df.loc[i - 336 ,var] + df.loc[i - 168 ,var] + df.loc[i - 24 ,var]) / 3
             num_imputed = num_imputed + 1
         elif i > 168:
-            input.loc[i ,"impute"] = (input.loc[i - 168 ,var] + input.loc[i - 24 ,var]) / 2
+            df.loc[i ,"impute"] = (df.loc[i - 168 ,var] + df.loc[i - 24 ,var]) / 2
             num_imputed = num_imputed + 1
         elif i > 24:
-            input.loc[i ,"impute"] = input.loc[i - 24 ,var]
+            df.loc[i ,"impute"] = df.loc[i - 24 ,var]
             num_imputed = num_imputed + 1
         else:
             print("There are not enough observations to impute observation:", i)
-        input["y"] = np.NaN
+        df["y"] = np.NaN
 
-    input.loc[missing_index, "y"] = input.loc[missing_index, "impute"]
-    input.loc[non_missing_index, "y"] = input.loc[non_missing_index, var]
-    output = imputed_values(data = input, missing_index = missing_index, num_imputed = num_imputed)
+    df.loc[missing_index, "y"] = df.loc[missing_index, "impute"]
+    df.loc[non_missing_index, "y"] = df.loc[non_missing_index, var]
+    output = imputed_values(data = df, missing_index = missing_index, num_imputed = num_imputed)
     return output
 ```
 ```{python}
@@ -243,8 +244,10 @@ if all(meta["success"]) and all(meta["update"]):
     series_meta = ts.data[["subba", "subba-name","parent-name", "value-units"]].drop_duplicates().dropna().sort_values(by = ["subba"])
     series_meta.reset_index(drop=True, inplace=True)
     series_meta.to_csv(series_mapping_path, index = False)
+    GT(d.head())
+    GT(series_meta)
 print("Save the meatadata into CSV files")
 m = eia_data.append_metadata(meta_path = meta_path, meta = meta, save = True, init = True)
-print(m)
+GT(m)
 ```
 
