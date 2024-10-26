@@ -8,14 +8,23 @@
                 "python.selectInterpreter": "/opt/pydata-ny-workshop/bin/python3"
             },
             "extensions": [
-                "quarto.quarto",
+                // Container
                 "ms-azuretools.vscode-docker",
+                "ms-vscode-remote.remote-containers",
+                //Python
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "ms-vscode-remote.remote-containers",
+                // HTML
+                "ms-vscode.live-server",
+                // Documents
                 "yzhang.markdown-all-in-one",
+                "quarto.quarto",
                 "redhat.vscode-yaml",
                 "ms-toolsai.jupyter",
+                //Code
+                "oderwat.indent-rainbow",
+                // Data
+                "mechatroner.rainbow-csv",
                 "ms-toolsai.datawrangler"
             ]
         }
