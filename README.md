@@ -3,9 +3,9 @@
 
 WIP...
 
-Materials for the Deploy and Monitor ML Pipelines with Python, Docker, and GitHub Actions workshop at the PyData NY Conference 2024.
+Materials for the Deploy and Monitor ML Pipelines with Python, Docker, and GitHub Actions workshop at the [PyData NYC 2024 Conference](https://pydata.org/nyc2024/).
 
-**When 📆:** Wednesday, November 6th, TBD 
+**When 📆:** Wednesday, November 6th, 10:50 AM EST
 
 The workshop is based on the LinkedIn Learning course - [Data Pipeline Automation with GitHub Actions](https://www.linkedin.com/learning/data-pipeline-automation-with-github-actions-using-r-and-python/), code is available [here](https://github.com/LinkedInLearning/data-pipeline-automation-with-github-actions-4503382).
 
