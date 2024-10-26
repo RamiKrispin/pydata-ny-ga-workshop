@@ -1,0 +1,373 @@
+{
+    "series_prototype": [
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONA",
+            "subba_name": "West - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONB",
+            "subba_name": "Genesee - NYIS"
+        }
+    ],
+    "series": [
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONA",
+            "subba_name": "West - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONB",
+            "subba_name": "Genesee - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONC",
+            "subba_name": "Central - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZOND",
+            "subba_name": "North - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONE",
+            "subba_name": "Mohawk Valley - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONF",
+            "subba_name": "Capital - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONG",
+            "subba_name": "Hudson Valley - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONH",
+            "subba_name": "Millwood - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONI",
+            "subba_name": "Dunwoodie - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONJ",
+            "subba_name": "New York City - NYIS"
+        },
+        {
+            "parent_id": "NYIS",
+            "parent_name": "New York Independent System Operator",
+            "subba_id": "ZONK",
+            "subba_name": "Long Island - NYIS"
+        }
+    ],
+    "api_path": "electricity/rto/region-sub-ba-data/",
+    "data_path": "./data/data.csv",
+    "meta_path": "./data/log.csv",
+    "series_mapping_path": "./data/series_mapping.csv",
+    "fc_meta_path": "./data/fc_log.csv",
+    "leaderboard_path": "./data/bkt_leader.csv",
+    "forecast_path": "./data/forecast.csv",
+    "forecast_log_path": "./data/forecast_log.csv",
+    "start": {
+        "year": 2022,
+        "month": 1,
+        "day": 1,
+        "hour": 0
+    },
+    "end": {
+        "year": 2024,
+        "month": 10,
+        "day": 1,
+        "hour": 1
+    },
+    "backfill": {
+        "offset": 2250,
+        "start": {
+            "year": 2019,
+            "month": 1,
+            "day": 1,
+            "hour": 0
+        },
+        "end": {
+            "year": 2024,
+            "month": 9,
+            "day": 28,
+            "hour": 0
+        }
+    },
+    "data": {
+        "data_path": "./data/us48.csv",
+        "log_path": "./data/us48_metadata.csv"
+    },
+    "backtesting": {
+        "settings": {
+            "partitions": 10,
+            "test_length": 24,
+            "overlap": 0,
+            "pi": 95
+        },
+        "seed": 12345,
+        "freq": 24,
+        "tags": {
+            "type": "backtesting",
+            "version": "0.0.1"
+        },
+        "mlflow_path": "file:///mlruns",
+        "p": 20,
+        "pi": 0.95,
+        "models": {
+            "model1": {
+                "label": "model1",
+                "type": "statsforecast",
+                "args": {
+                    "models": [
+                        "HoltWinters()",
+                        "SeasonalNaive(season_length=[24, 24 * 7])",
+                        "HistoricAverage()",
+                        "DynamicOptimizedTheta(season_length=[24, 24 * 7])",
+                        "MSTL(season_length=[24, 24 * 7], trend_forecaster=AutoARIMA())"
+                    ],
+                    "freq": "h",
+                    "fallback_model": "SeasonalNaive(season_length=24)",
+                    "n_jobs": -1,
+                    "train_length": 17520,
+                    "comments": "Core stats models, training with 2 years of data"
+                }
+            },
+            "model2": {
+                "label": "model2",
+                "type": "statsforecast",
+                "args": {
+                    "models": [
+                        "HoltWinters()",
+                        "SeasonalNaive(season_length=[24, 24 * 7])",
+                        "HistoricAverage()",
+                        "DynamicOptimizedTheta(season_length=[24, 24 * 7])"
+                    ],
+                    "freq": "h",
+                    "fallback_model": "SeasonalNaive(season_length=24)",
+                    "n_jobs": -1,
+                    "train_length": 26280,
+                    "comments": "Core stats models, training with 3 years of data"
+                }
+            },
+            "model3": {
+                "label": "model3",
+                "type": "mlforecast",
+                "args": {
+                    "models": [
+                        "LGBMRegressor()",
+                        "XGBRegressor()",
+                        "LinearRegression()"
+                    ],
+                    "lags": [
+                        1,
+                        24,
+                        48
+                    ],
+                    "date_features": [
+                        "day",
+                        "dayofweek",
+                        "hour"
+                    ],
+                    "n_windows": 5,
+                    "freq": "h",
+                    "train_length": 26280,
+                    "comments": "Core stats models, training with 3 years of data"
+                }
+            }
+        }
+    },
+    "backtesting2": {
+        "seed": 12345,
+        "freq": 24,
+        "h": 24,
+        "overlap": 0,
+        "tags": {
+            "type": "backtesting",
+            "version": "0.0.1"
+        },
+        "mlflow_path": "file:///mlruns",
+        "p": 20,
+        "pi": 0.95,
+        "quantiles": [
+            0.025,
+            0.1,
+            0.25,
+            0.5,
+            0.75,
+            0.9,
+            0.975
+        ],
+        "experiment_name": "backtesting",
+        "models": {
+            "model1": {
+                "model": "LinearRegressionModel",
+                "model_label": "model1",
+                "comments": "LM model with lags, training with 2 years of history",
+                "num_samples": 100,
+                "lags": [
+                    -24,
+                    -168,
+                    -8760
+                ],
+                "likelihood": "quantile",
+                "train": 17520
+            },
+            "model2": {
+                "model": "LinearRegressionModel",
+                "model_label": "model2",
+                "comments": "LM model with lags, training with 3 years of history",
+                "num_samples": 100,
+                "lags": [
+                    -24,
+                    -168,
+                    -8760
+                ],
+                "likelihood": "quantile",
+                "train": 26280
+            },
+            "model3": {
+                "model": "LinearRegressionModel",
+                "model_label": "model3",
+                "comments": "Model 2 with lag 1",
+                "num_samples": 100,
+                "lags": [
+                    -1,
+                    -24,
+                    -25,
+                    -26,
+                    -168,
+                    -8760
+                ],
+                "likelihood": "quantile",
+                "train": 26280
+            },
+            "model4": {
+                "model": "LinearRegressionModel",
+                "model_label": "model4",
+                "comments": "Model 1 with additional lags",
+                "num_samples": 100,
+                "lags": [
+                    -1,
+                    -2,
+                    -3,
+                    -4,
+                    -23,
+                    -24,
+                    -25,
+                    -48
+                ],
+                "likelihood": "quantile",
+                "train": 17520
+            },
+            "model5": {
+                "model": "LinearRegressionModel",
+                "model_label": "model5",
+                "comments": "Model 1 with additional lags",
+                "num_samples": 100,
+                "lags": [
+                    -1,
+                    -2,
+                    -3,
+                    -24,
+                    -48,
+                    -168,
+                    -336,
+                    -8760
+                ],
+                "likelihood": "quantile",
+                "train": 17520
+            },
+            "model6": {
+                "model": "XGBModel",
+                "model_label": "model6",
+                "comments": "XGBoost with lags",
+                "num_samples": 100,
+                "lags": [
+                    -1,
+                    -2,
+                    -3,
+                    -24,
+                    -48,
+                    -168,
+                    -336,
+                    -8760
+                ],
+                "likelihood": "quantile",
+                "train": 17520
+            },
+            "model7": {
+                "model": "XGBModel",
+                "model_label": "model7",
+                "comments": "XGBoost with lags",
+                "num_samples": 100,
+                "lags": [
+                    -1,
+                    -2,
+                    -3,
+                    -24,
+                    -48,
+                    -168
+                ],
+                "likelihood": "quantile",
+                "train": 17520
+            },
+            "model8": {
+                "model": "XGBModel",
+                "model_label": "model8",
+                "comments": "XGBoost with lags",
+                "num_samples": 100,
+                "lags": [
+                    -1,
+                    -2,
+                    -3,
+                    -24,
+                    -48,
+                    -168
+                ],
+                "likelihood": "quantile",
+                "train": 17520
+            },
+            "model9": {
+                "model": "XGBModel",
+                "model_label": "model9",
+                "comments": "Model 1 with additional lags",
+                "num_samples": 100,
+                "lags": [
+                    -1,
+                    -2,
+                    -3,
+                    -4,
+                    -23,
+                    -24,
+                    -25,
+                    -48
+                ],
+                "likelihood": "quantile",
+                "train": 17520
+            }
+        }
+    }
+}
