@@ -279,3 +279,16 @@ We will use the following `devcontainer.json` file to set the development enviro
 
 
 If you want to learn more about setting up a dockerized development environment with the Dev Containers extension, please check the [Python](https://github.com/RamiKrispin/vscode-python) and [R](https://github.com/RamiKrispin/vscode-python) tutorials.
+
+
+
+
+## Resources
+
+- Docker documentation: https://docs.docker.com/
+- Dev Containers Extension: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+- GitHub Actions documentation: https://docs.github.com/en/actions
+
+## License
+This tutorial is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
+
