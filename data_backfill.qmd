@@ -34,7 +34,7 @@ Load settings:
 ```{python}
 raw_json = open("./settings/settings.json")
 meta_json = json.load(raw_json)
-series = pd.DataFrame(meta_json["series"])
+series = pd.DataFrame(meta_json["series_prototype"])
 api_path = meta_json["api_path"]
 ```
 
@@ -243,9 +243,11 @@ if all(meta["success"]) and all(meta["update"]):
     d = eia_data.append_data(data_path = data_path, new_data = df, init = True, save = True)
     series_meta = ts.data[["subba", "subba-name","parent-name", "value-units"]].drop_duplicates().dropna().sort_values(by = ["subba"])
     series_meta.reset_index(drop=True, inplace=True)
+    series_meta["unique_id"] = series_meta.index + 1
     series_meta.to_csv(series_mapping_path, index = False)
-    GT(d.head())
-    GT(series_meta)
+    print(d.head())
+    print(series_meta)
+
 print("Save the meatadata into CSV files")
 m = eia_data.append_metadata(meta_path = meta_path, meta = meta, save = True, init = True)
 GT(m)
