@@ -3,7 +3,7 @@
 # Image settings
 user_name=rkrispin
 image_label=pydata_ny_workshop
-image_tag=0.0.2
+image_tag=0.0.3
 image_name=$user_name/$image_label:$image_tag
 venv_name="pydata-ny-workshop"
 
