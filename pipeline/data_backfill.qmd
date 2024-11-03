@@ -1,8 +1,8 @@
 ---
 title: "Data Backfill"
 format:
-  html:
-    code-fold: false
+    html:
+        code-fold: false
 jupyter: python3
 ---
 
@@ -32,7 +32,7 @@ from great_tables import GT
 
 Load settings:
 ```{python}
-raw_json = open("./settings/settings.json")
+raw_json = open("../settings/settings.json")
 meta_json = json.load(raw_json)
 series = pd.DataFrame(meta_json["series_prototype"])
 api_path = meta_json["api_path"]
@@ -42,22 +42,22 @@ api_path = meta_json["api_path"]
 ```{python}
 
 facets_template = {
-  "parent" : None,
-  "subba" : None
+    "parent" : None,
+    "subba" : None
 }
 
-start = datetime.datetime(meta_json["start"]["year"],
- meta_json["start"]["month"], 
- meta_json["start"]["day"], 
- meta_json["start"]["hour"])
+start = datetime.datetime(meta_json["backfill"]["start"]["year"],
+ meta_json["backfill"]["start"]["month"], 
+ meta_json["backfill"]["start"]["day"], 
+ meta_json["backfill"]["start"]["hour"])
 
-end = datetime.datetime(meta_json["end"]["year"],
- meta_json["end"]["month"], 
- meta_json["end"]["day"], 
- meta_json["end"]["hour"])
+end = datetime.datetime(meta_json["backfill"]["end"]["year"],
+ meta_json["backfill"]["end"]["month"], 
+ meta_json["backfill"]["end"]["day"], 
+ meta_json["backfill"]["end"]["hour"])
 
 
-offset = 2250
+offset =  meta_json["backfill"]["offset"]
 
 eia_api_key = os.getenv('EIA_API_KEY')
 
@@ -164,11 +164,12 @@ def impute_series(series, meta):
         def __init__(self, data, metadata):
             self.data = data
             self.metadata = metadata
+    ts = series.copy()
     new_df = None
     for index, row in meta.iterrows():
         s = row["subba"]
         temp = None
-        temp = series[series["subba"] == s]
+        temp = ts[ts["subba"] == s]
         if row["na"] > 0:
             print("Series", s, "has", row["na"], "missing values")
             imputed = impute_missing(input = temp, var = "value", index = "period")

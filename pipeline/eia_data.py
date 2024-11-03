@@ -141,16 +141,17 @@ def append_data(data_path, new_data, init = False, save = False):
     return updated_data
 
 
-def get_metadata(api_key, api_path, meta_path, series):
-   
-   meta = load_metadata(path = meta_path, series = series)
-   api_metadata = api.eia_metadata(api_key = api_key, api_path = api_path)
-   end = pd.to_datetime(api_metadata.meta["endPeriod"])
-   meta.request_meta["end"] = end
-   meta.request_meta["updates_available"] = meta.request_meta["end"] > meta.request_meta["request_start"]
+def get_metadata(api_key, api_path, meta_path, series, offset = None):
+    meta = load_metadata(path = meta_path, series = series)
+    api_metadata = api.eia_metadata(api_key = api_key, api_path = api_path)
+    end = pd.to_datetime(api_metadata.meta["endPeriod"])
+    if offset is None:
+        meta.request_meta["end"] = end
+    else:
+        meta.request_meta["end"] = end - datetime.timedelta(hours = offset)
 
-   return meta
+    meta.request_meta["updates_available"] = meta.request_meta["end"] > meta.request_meta["request_start"]
 
+    return meta
 
-   
 

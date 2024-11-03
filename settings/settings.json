@@ -82,43 +82,35 @@
         }
     ],
     "api_path": "electricity/rto/region-sub-ba-data/",
-    "data_path": "./data/data.csv",
-    "meta_path": "./data/log.csv",
-    "series_mapping_path": "./data/series_mapping.csv",
-    "fc_meta_path": "./data/fc_log.csv",
-    "leaderboard_path": "./data/bkt_leader.csv",
-    "forecast_path": "./data/forecast.csv",
-    "forecast_log_path": "./data/forecast_log.csv",
-    "start": {
-        "year": 2022,
-        "month": 1,
-        "day": 1,
-        "hour": 0
-    },
-    "end": {
-        "year": 2024,
-        "month": 10,
-        "day": 1,
-        "hour": 1
-    },
+    "data_path": "../data/data.csv",
+    "meta_path": "../data/log.csv",
+    "series_mapping_path": "../data/series_mapping.csv",
+    "fc_meta_path": "../data/fc_log.csv",
+    "leaderboard_path": "../data/bkt_leader.csv",
+    "forecast_path": "../data/forecast.csv",
+    "forecast_log_path": "../data/forecast_log.csv",
     "backfill": {
         "offset": 2250,
         "start": {
-            "year": 2019,
+            "year": 2022,
             "month": 1,
             "day": 1,
             "hour": 0
         },
         "end": {
             "year": 2024,
-            "month": 9,
-            "day": 28,
-            "hour": 0
+            "month": 10,
+            "day": 1,
+            "hour": 1
         }
     },
+    "refresh": {
+        "offset": 2250
+    },
     "data": {
-        "data_path": "./data/us48.csv",
-        "log_path": "./data/us48_metadata.csv"
+        "data_path": "../data/data.csv",
+        "log_path": "../data/log.csv",
+        "series_mapping": "../data/series_mapping.csv"
     },
     "backtesting": {
         "settings": {

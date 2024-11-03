@@ -1,0 +1,22 @@
+name: Data Refresh
+
+on:
+  push
+  # schedule:
+  # - cron: "0 */4 * * *"
+jobs:
+  refresh-the-dashboard:
+    runs-on: ubuntu-22.04
+    container:
+      image: docker.io/rkrispin/pydata_ny_workshop:0.0.3
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v3
+        with:
+          ref: "main"
+      - name: Data Refresh
+        run: bash ./pipeline/data_refresh.sh
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_NAME: ${{ secrets.USER_NAME }}
