@@ -110,7 +110,7 @@
     "data": {
         "data_path": "../data/data.csv",
         "log_path": "../data/log.csv",
-        "series_mapping": "../data/series_mapping.csv"
+        "series_mapping_path": "../data/series_mapping.csv"
     },
     "backtesting": {
         "settings": {
