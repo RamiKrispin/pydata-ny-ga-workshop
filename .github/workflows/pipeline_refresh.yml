@@ -8,7 +8,7 @@ jobs:
   refresh-the-dashboard:
     runs-on: ubuntu-22.04
     container:
-      image: docker.io/rkrispin/pydata_ny_workshop:0.0.3
+      image: docker.io/rkrispin/ai-dev:amd64.0.0.2
     steps:
       - name: checkout_repo
         uses: actions/checkout@v3
