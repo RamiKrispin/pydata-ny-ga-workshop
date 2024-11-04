@@ -1,3 +1,5 @@
 index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,na,imputed,type,update,success,comments
-1,NYIS,ZONA,2024-11-03 22:25:15.004671+00:00,2022-01-01,2024-10-01 01:00:00,2022-01-01,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONB,2024-11-03 22:25:38.877219+00:00,2022-01-01,2024-10-01 01:00:00,2022-01-01,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONA,2024-11-03 22:25:15.004671+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONB,2024-11-03 22:25:38.877219+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
+2,NYIS,ZONA,2024-11-04 05:14:48.449001+00:00,2024-10-01 02:00:00,2024-11-03 01:00:00,2024-10-01 02:00:00,2024-11-03 01:00:00,True,True,792,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
+2,NYIS,ZONB,2024-11-04 05:14:49.642152+00:00,2024-10-01 02:00:00,2024-11-03 01:00:00,2024-10-01 02:00:00,2024-11-03 01:00:00,True,True,792,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
