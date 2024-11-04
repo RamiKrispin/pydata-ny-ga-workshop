@@ -1,6 +1,7 @@
 {
     "name": "PyData NY 2024 Workshop",
-    "image": "docker.io/rkrispin/pydata_ny_workshop:0.0.3",
+    "image": "docker.io/rkrispin/pydata_ny_workshop:arm64.0.0.3",
+    // "image": "docker.io/rkrispin/pydata_ny_workshop:amd64.0.0.3",
     "customizations": {
         "vscode": {
             "settings": {
