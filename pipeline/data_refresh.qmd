@@ -35,8 +35,8 @@ api_path = meta_json["api_path"]
 meta_path = meta_json["meta_path"]
 data_path = meta_json["data_path"]
 # Should be setting as false during development
-save_data = False
-save_meta = False
+save_data = True
+save_meta = True
 
 eia_api_key = os.getenv('EIA_API_KEY')
 
