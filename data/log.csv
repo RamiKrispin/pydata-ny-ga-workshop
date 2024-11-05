@@ -13,3 +13,5 @@ Name: comments, dtype: object"
 Name: comments, dtype: object"
 5,NYIS,ZONB,2024-11-05 04:17:01.043354+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,False,"0    No new data is available; The data refresh fai...
 Name: comments, dtype: object"
+6,NYIS,ZONA,2024-11-05 05:16:00.476501+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+6,NYIS,ZONB,2024-11-05 05:16:00.478070+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
