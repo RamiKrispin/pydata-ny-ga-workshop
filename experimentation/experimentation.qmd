@@ -1,0 +1,465 @@
+---
+title: "Experimentation"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+## Loading Required Libraries
+
+```{python}
+import pandas as pd
+import numpy as np
+import requests
+import json
+import os
+import mlflow
+import datetime
+import plotly.graph_objects as go
+from great_tables import GT as gt
+
+
+from statsforecast import StatsForecast
+from statsforecast.models import (
+    HoltWinters,
+    CrostonClassic as Croston, 
+    HistoricAverage,
+    DynamicOptimizedTheta,
+    SeasonalNaive,
+    AutoARIMA,
+    AutoETS,
+    AutoTBATS,
+    MSTL
+
+)
+
+from mlforecast import MLForecast
+from mlforecast.target_transforms import Differences
+from mlforecast.utils import PredictionIntervals
+from window_ops.expanding import expanding_mean
+from lightgbm import LGBMRegressor
+from xgboost import XGBRegressor
+from sklearn.linear_model import LinearRegression
+from utilsforecast.plotting import plot_series
+from statistics import mean
+```
+
+
+## Data
+Loading metadata:
+
+```{python}
+raw_json = open("../settings/settings.json")
+meta_json = json.load(raw_json)
+
+meta_path = meta_json["meta_path"]
+data_path = meta_json["data"]["data_path"]
+series_mapping_path = meta_json["data"]["series_mapping_path"]
+```
+
+Loading the dataset:
+
+
+
+```{python}
+df = pd.read_csv(data_path)
+ts = df[["period", "subba", "y"]].copy()
+ts["ds"] = pd.to_datetime(ts["period"])
+ts = ts[["ds", "subba", "y"]]
+ts = ts.rename(columns={"subba":"unique_id"})
+
+gt(ts.head(10))
+```
+
+
+
+
+```{python}
+fig = go.Figure()
+
+for i in ts["unique_id"].unique():
+  d = None
+  d = ts[ts["unique_id"] == i]
+  name = i,
+  fig.add_trace(go.Scatter(x=d["ds"], 
+    y=d["y"], 
+    name = i,
+    mode='lines'))
+    
+fig.update_layout(title = "The Hourly Demand for Electricity in New York by Independent System Operator")
+fig
+```
+
+## EDA
+
+```{python}
+fig = plot_series(ts, max_ids= len(ts.unique_id.unique()), 
+plot_random=False, 
+max_insample_length=24 * 30,
+engine = "plotly")
+fig.update_layout(title = "The Hourly Demand for Electricity in New York by Independent System Operator")
+fig
+```
+
+## Models Settings
+Loading the backtesting settings:
+```{python}
+cv_settings = meta_json["backtesting"]["settings"]
+models = meta_json["backtesting"]["models"]
+```
+
+Setting the backtesting partitions:
+
+
+
+```{python}
+models = [LGBMRegressor(), XGBRegressor(),  LinearRegression()]
+
+mlf = MLForecast(
+    models=models, 
+    freq="h",
+    target_transforms=[Differences([24])],
+    lags=range(1, 25)
+)
+
+
+cv_df = mlf.cross_validation(
+    df=ts,
+    h=24,
+    n_windows=3,
+    prediction_intervals=PredictionIntervals(n_windows=5, h=72, method="conformal_distribution" ),
+    level = [95]
+)
+```
+
+```{python}
+cv_df.head()
+```
+
+
+```{python}
+cutoff = cv_df.cutoff.unique()
+partitions_mapping = pd.DataFrame({"cutoff": cutoff})
+partitions_mapping["partition"] = range(1, len(cutoff) + 1)
+partitions_mapping
+```
+
+```{python}
+cv_df = cv_df.merge(right = partitions_mapping, left_on = "cutoff", right_on = "cutoff")
+```
+
+
+```{python}
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import plotly.express as px
+import datetime
+
+def plot_cv(input, cv, hours, rows, cols, models):
+  colors = px.colors.qualitative.Plotly
+  start = cv["ds"].min() - datetime.timedelta(hours = hours)
+  c = 1
+  r = 1
+  fig = make_subplots(rows = rows, cols = cols)
+  for i in input["unique_id"].unique():
+    cv_sub = cv[cv["unique_id"] == i]
+
+    ts_sub = input[(input["unique_id"] == i) & (input["ds"] >= start)]
+
+    fig.add_trace(
+      go.Scatter( x= ts_sub["ds"], y = ts_sub["y"], name = "Actual"), row = r, col = c
+    )
+    for p in cv["partition"].unique():
+      if p ==1:
+        showlegend = True
+      else:
+        showlegend = False
+
+      cv_sub =  cv[(cv["unique_id"] == i) & (cv["partition"] == p) ]
+      for m in range(len(models)):
+        fig.add_trace(
+          go.Scatter( x= cv_sub["ds"], y = cv_sub[models[m]],line=dict(color= colors[m], dash = "dash"), name = models[m], legendgroup=  models[m], showlegend = showlegend), row = r, col = c
+        )
+
+    c += 1
+    if c > cols:
+      c = 1
+      r += 1
+
+  return fig
+
+
+models = ["LGBMRegressor", "XGBRegressor", "LinearRegression"]
+plot_cv(input = ts, cv = cv_df, 
+hours = 24 * 3, 
+rows = 1,
+cols = 1,
+models = models)
+```
+
+
+
+
+
+
+
+
+
+
+```{python}
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+
+def plot_cv(input, cv, hours, rows, cols):
+  start = cv["ds"].min() - datetime.timedelta(hours = hours)
+  c = 1
+  r = 1
+  fig = make_subplots(rows = rows, cols = cols)
+  for i in input["unique_id"].unique():
+    cv_sub = cv[cv["unique_id"] == i]
+
+    ts_sub = input[(input["unique_id"] == i) & (input["ds"] >= start)]
+
+    fig.add_trace(
+      go.Scatter( x= ts_sub["ds"], y = ts_sub["y"]), row = r, col = c
+    )
+    fig.add_trace(
+      go.Scatter( x= ts_sub["ds"], y = ts_sub["y"]), row = r, col = c
+    )
+
+    c += 1
+    if c > cols:
+      c = 1
+      r += 1
+
+  return fig
+
+plot_cv(input = ts, cv = cv_df, 
+hours = 24 * 14, 
+rows = int(np.ceil(len(cv_df["unique_id"].unique()) / 2)),
+cols = 2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{python}
+par_map = backtesting.partitions_mapping(input = ts, index = "ds", partitions = 10, overlap = 0, train_length=26280, test_length= 24)
+```
+
+
+Reformat the models object:
+```{python}
+def models_reformat(models):
+  for i in range(len(models)):
+    if isinstance(models[i], str):
+      models[i] = eval(models[i])
+
+
+def mape(y, yhat):
+    mape = mean(abs(y - yhat)/ y) 
+    return mape
+
+def rmse(y, yhat):
+    rmse = (mean((y - yhat) ** 2 )) ** 0.5
+    return rmse
+
+def coverage(y, lower, upper):
+    coverage = sum((y <= upper) & (y >= lower)) / len(y)
+    return coverage
+
+```
+
+Test the backtesting 
+```{python}
+settings = meta_json["backtesting"]["settings"]
+models = meta_json["backtesting"]["models"]
+
+input = ts
+
+
+model_obj = None
+for m in models.keys():
+  models[m]["args"]["type"] =  models[m]["type"]
+  temp = forecast_bkt(input = input, args = models[m]["args"], settings = meta_json["backtesting"]["settings"], label = m )
+  if model_obj is None:
+    model_obj = temp
+  else:
+    model_obj.forecast = pd.concat([model_obj.forecast, temp.forecast])
+    model_obj.score = pd.concat([model_obj.score, temp.score]) 
+
+
+
+
+model_obj.forecast
+model_obj.score.sort_values(by=["partition", "mape"], ascending=[True, True])
+
+
+
+```
+
+```{python}
+def stats_forecast(train, test, args, h):
+  class stats_forecast_train:
+    def __init__(self, score, forecast):
+      self.score = score
+      self.forecast = forecast
+
+  md = StatsForecast(
+        models= args["models"],
+        freq= args["freq"], 
+        fallback_model = eval(args["fallback_model"]),
+        n_jobs= args["n_jobs"])
+
+  fc = md.forecast(df=train, h=h, level=[args["pi"]])
+
+  f = fc.merge(test, how = "left", on = "ds")
+  fc_performance = None
+  for i in args["models"]:
+    m_str = str(i)
+    m = mape(y = f.y, yhat = f[m_str])
+    r = rmse(y = f.y, yhat = f[m_str])
+    c = coverage(y = f.y, lower = f[m_str + "-lo-" + str(args["pi"])], upper = f[m_str + "-hi-" + str(args["pi"])])
+    perf = {"model": i,
+            "mape": m,
+            "rmse": r,
+            "coverage": c}
+    if fc_performance is None:
+        fc_performance = pd.DataFrame([perf])
+    else:
+        fc_performance = pd.concat([fc_performance, pd.DataFrame([perf])])
+  fc_performance.sort_values("rmse")
+
+  output = stats_forecast_train(score = fc_performance, forecast = fc)
+  return output
+
+
+
+def ml_forecast(train, test, args, h):
+  class ml_forecast_train:
+    def __init__(self, score, forecast):
+      self.score = score
+      self.forecast = forecast
+  if "lags" not in args.keys():
+    args["lags"] = None
+  if "date_features" not in args.keys():
+    args["date_features"] = None
+  md = MLForecast(
+        models= args["models"],
+        freq= args["freq"], 
+        lags = args["lags"],
+        date_features = args["date_features"]
+        )
+  md.fit(df = train, fitted = True, prediction_intervals=PredictionIntervals(n_windows= args["n_windows"], h = h, method="conformal_distribution"))
+  fc = md.predict(h=h, level=[args["pi"]])
+
+  f = fc.merge(test, how = "left", on = "ds")
+  fc_performance = None
+  for i in args["models"]:
+    m_str = type(i).__name__
+    m = mape(y = f.y, yhat = f[m_str])
+    r = rmse(y = f.y, yhat = f[m_str])
+    c = coverage(y = f.y, lower = f[m_str + "-lo-" + str(args["pi"])], upper = f[m_str + "-hi-" + str(args["pi"])])
+    perf = {"model":  m_str,
+            "mape": m,
+            "rmse": r,
+            "coverage": c}
+    if fc_performance is None:
+        fc_performance = pd.DataFrame([perf])
+    else:
+        fc_performance = pd.concat([fc_performance, pd.DataFrame([perf])])
+  fc_performance.sort_values("rmse")
+
+  output = stats_forecast_train(score = fc_performance, forecast = fc)
+  return output
+
+
+
+def forecast_bkt(input, args, settings, label):
+  class stats_forecast_train:
+    def __init__(self, score, forecast):
+      self.score = score
+      self.forecast = forecast
+  models_reformat(models = args["models"])
+  models_list = args["models"]
+  train_length = args["train_length"]
+  # Set the partitions mapping
+  par_map = backtesting2.partitions_mapping(input = input, 
+  index = "ds", 
+  partitions = settings["partitions"], 
+  overlap = settings["overlap"], 
+  train_length= args["train_length"], 
+  test_length= settings["test_length"])
+  s = None
+  models_score = None
+  for r in par_map.iterrows():
+    train = None
+    test = None
+    p = r[1]["partition"]
+    train = input[(input["ds"] >= r[1]["train_start"]) & (input["ds"] <= r[1]["train_end"])]
+    test = input[(input["ds"] >= r[1]["test_start"]) & (input["ds"] <= r[1]["test_end"])]
+
+    args["pi"] = settings["pi"]
+    if args["type"] == "statsforecast":
+      f = stats_forecast(train = train, 
+      test = test, 
+      args = args, 
+      h = test_length)
+      f.score["type"] = "statsforecast"
+      f.forecast["type"] = "statsforecast"
+    elif args["type"] == "mlforecast":
+      f = ml_forecast(train = train, 
+      test = test, 
+      args = args, 
+      h = test_length)
+      f.score["type"] = "mlforecast"
+      f.forecast["type"] = "mlforecast"
+    f.score["partition"] = p
+    f.score["label"] = label
+    f.forecast["partition"] = p
+    f.forecast["label"] = label
+    if s is None:
+      s = f.score
+      fc = f.forecast
+    else:
+      s = pd.concat([s, f.score])
+      fc = pd.concat([fc, f.forecast])
+  fc_long = fc_to_long(fc = fc, models = args["models"], pi = args["pi"])
+  output = stats_forecast_train(score = s, forecast = fc_long)
+  return output
+
+def fc_to_long(fc, models, pi):
+  f = None
+  for m in models:
+    m = type(m).__name__
+    temp = fc[["ds", "partition", "type", "label"]]
+    temp["forecast"] = fc[m] 
+    temp["lower"] = fc[m+"-lo-" + str(pi)]
+    temp["upper"] = fc[m+"-hi-" + str(pi)]
+    temp["model"] = m
+    if f is None:
+      f = temp
+    else:
+      f = pd.concat([f, temp])
+  return f
+   
+
+
+```
+
