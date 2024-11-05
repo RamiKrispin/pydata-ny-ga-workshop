@@ -102,7 +102,7 @@ for i in m.index:
         ts_obj  = ts_obj.merge(temp.data, left_on = "index", right_on = "period", how="left")
         ts_obj.drop("period", axis = 1, inplace= True)
         ts_obj = ts_obj.rename(columns= {"index": "period"})
-    # Case I - new data is not available
+    # Case II - new data is not available
     else:
         ts_obj = None
         print("No new data is available")
@@ -110,7 +110,7 @@ for i in m.index:
     meta_temp = eia_data.create_metadata(data = ts_obj, start = start, end = end, type = "refresh")
     print(meta_temp)
     meta_temp = pd.DataFrame([meta_temp])
-
+    # Handling missing values
     if ts_obj is not None and meta_temp["na"].iloc[0] is not None and meta_temp["na"].iloc[0] >= 0:
         print(meta_temp)
         missing_index = ts_obj.value.isnull()
@@ -125,12 +125,12 @@ for i in m.index:
     if ts_obj is None:
         meta_temp["parent"].iloc[0] =  m.at[i, "parent"]
         meta_temp["subba"].iloc[0] =  m.at[i, "subba"]
-
-    if meta_temp["success"].iloc[0]:
+    # Append the data if the refresh was successful
+    if meta_temp["success"].iloc[0] and meta_temp["update"].iloc[0]:
         print("Append the new data")
         d = eia_data.append_data(data_path = data_path, new_data = ts_obj, save = save_data)
         meta_temp["update"].iloc[0] = True
-    else:
+    elif not meta_temp["success"].iloc[0]:
         meta_temp["update"].iloc[0] = False
         meta_temp["comments"].iloc[0] = meta_temp["comments"] + "The data refresh failed, please check the log; "
 

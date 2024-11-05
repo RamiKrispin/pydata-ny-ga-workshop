@@ -46,7 +46,9 @@ def create_metadata(data, start, end, type):
             meta["comments"] = meta["comments"] + "Missing values were found; "
     else:
         meta["comments"] =  meta["comments"] + "No new data is available; "
-       
+        meta["success"] = True
+        meta["update"] = False
+        
     return meta
 
 
