@@ -132,7 +132,7 @@ for i in m.index:
         meta_temp["update"].iloc[0] = True
     elif not meta_temp["success"].iloc[0]:
         meta_temp["update"].iloc[0] = False
-        meta_temp["comments"].iloc[0] = meta_temp["comments"] + "The data refresh failed, please check the log; "
+        meta_temp["comments"].iloc[0] = meta_temp["comments"].iloc[0] + "The data refresh failed, please check the log; "
 
 
     if data is None:
