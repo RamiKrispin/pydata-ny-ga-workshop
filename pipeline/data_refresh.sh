@@ -14,6 +14,7 @@ echo "Finish"
 p=$(pwd)
 git config --global --add safe.directory $p
 
+pytest tests/tests_data.py
 
 # Render the Quarto dashboard
 if [[ "$(git status --porcelain)" != "" ]]; then

@@ -74,7 +74,6 @@ GT(meta_obj.request_meta)
 
 ```{python}
 m = meta_obj.request_meta
-# m = m[m["subba"] == "ZONA"]
 index = meta_obj.last_index + 1
 data = None
 meta_new = None
@@ -86,8 +85,9 @@ for i in m.index:
     start = m.at[i, "request_start"]
     end = m.at[i, "end"]
 
-    print(facets)
+    # Case I - new data is available
     if m.at[i, "updates_available"]:
+        print(m.at[i, "subba"], "- New updates are available, trying to refresh the data")
         temp = api.eia_backfill(api_key = eia_api_key, 
             api_path = api_path+ "data", 
             facets = facets, 
@@ -102,6 +102,7 @@ for i in m.index:
         ts_obj  = ts_obj.merge(temp.data, left_on = "index", right_on = "period", how="left")
         ts_obj.drop("period", axis = 1, inplace= True)
         ts_obj = ts_obj.rename(columns= {"index": "period"})
+    # Case I - new data is not available
     else:
         ts_obj = None
         print("No new data is available")
@@ -110,7 +111,7 @@ for i in m.index:
     print(meta_temp)
     meta_temp = pd.DataFrame([meta_temp])
 
-    if meta_temp["na"].iloc[0] >= 0:
+    if ts_obj is not None and meta_temp["na"].iloc[0] is not None and meta_temp["na"].iloc[0] >= 0:
         print(meta_temp)
         missing_index = ts_obj.value.isnull()
         ts_obj.loc[missing_index, "subba"] = meta_temp["subba"].iloc[0]
@@ -133,7 +134,6 @@ for i in m.index:
         meta_temp["update"].iloc[0] = False
         meta_temp["comments"].iloc[0] = meta_temp["comments"] + "The data refresh failed, please check the log; "
 
-    meta_df = meta_temp
 
     if data is None:
         data = ts_obj
@@ -141,13 +141,11 @@ for i in m.index:
         data = data._append(ts_obj)
 
     if meta_new is None:
-        meta_new = meta_df
+        meta_new = meta_temp
     else:
-        meta_new = meta_new._append(meta_df)
+        meta_new = meta_new._append(meta_temp)
 meta_new.reset_index(drop=True, inplace=True)
 ```
-
-
 
 ```{python}
 GT(meta_new,rowname_col = "index")

@@ -112,6 +112,9 @@
         "log_path": "../data/log.csv",
         "series_mapping_path": "../data/series_mapping.csv"
     },
+    "testing": {
+        "data_path": "./data/data.csv"
+    },
     "backtesting": {
         "settings": {
             "partitions": 10,

@@ -6,7 +6,7 @@ import os
 
 raw_json = open("./settings/settings.json")
 meta_json = json.load(raw_json)
-data_path = meta_json["data_path"]
+data_path = meta_json["testing"]["data_path"]
 df = pd.read_csv(data_path)
 df["period"] = pd.to_datetime(df["period"])
 
