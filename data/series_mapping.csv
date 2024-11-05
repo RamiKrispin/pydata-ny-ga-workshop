@@ -1,3 +1,12 @@
 subba,subba-name,parent-name,value-units,unique_id
 ZONA,West - NYIS,New York Independent System Operator,megawatthours,1
 ZONB,Genesee - NYIS,New York Independent System Operator,megawatthours,2
+ZONC,Central - NYIS,New York Independent System Operator,megawatthours,3
+ZOND,North - NYIS,New York Independent System Operator,megawatthours,4
+ZONE,Mohawk Valley - NYIS,New York Independent System Operator,megawatthours,5
+ZONF,Capital - NYIS,New York Independent System Operator,megawatthours,6
+ZONG,Hudson Valley - NYIS,New York Independent System Operator,megawatthours,7
+ZONH,Millwood - NYIS,New York Independent System Operator,megawatthours,8
+ZONI,Dunwoodie - NYIS,New York Independent System Operator,megawatthours,9
+ZONJ,New York City - NYIS,New York Independent System Operator,megawatthours,10
+ZONK,Long Island - NYIS,New York Independent System Operator,megawatthours,11
