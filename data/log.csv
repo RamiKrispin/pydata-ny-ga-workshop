@@ -1,25 +1,36 @@
 index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,na,imputed,type,update,success,comments
-1,NYIS,ZONA,2024-11-05 05:30:28.064184+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONB,2024-11-05 05:30:39.101353+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONC,2024-11-05 05:30:54.164038+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZOND,2024-11-05 05:31:09.183913+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONE,2024-11-05 05:31:24.350373+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONF,2024-11-05 05:31:38.829825+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONG,2024-11-05 05:31:54.169900+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONH,2024-11-05 05:32:08.296707+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONI,2024-11-05 05:32:23.408402+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONJ,2024-11-05 05:32:39.046172+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-1,NYIS,ZONK,2024-11-05 05:32:56.003404+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098,1,1,backfill,True,True,Missing values were found;  Missing values were imputed
-2,NYIS,ZONA,2024-11-05 05:34:07.265687+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-2,NYIS,ZONB,2024-11-05 05:34:08.968823+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONA,2024-11-05 05:30:28.064184+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONB,2024-11-05 05:30:39.101353+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONC,2024-11-05 05:30:54.164038+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZOND,2024-11-05 05:31:09.183913+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONE,2024-11-05 05:31:24.350373+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONF,2024-11-05 05:31:38.829825+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONG,2024-11-05 05:31:54.169900+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONH,2024-11-05 05:32:08.296707+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONI,2024-11-05 05:32:23.408402+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONJ,2024-11-05 05:32:39.046172+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+1,NYIS,ZONK,2024-11-05 05:32:56.003404+00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,2022-01-01 00:00:00,2024-10-01 01:00:00,True,True,24098.0,1.0,1,backfill,True,True,Missing values were found;  Missing values were imputed
+2,NYIS,ZONA,2024-11-05 05:34:07.265687+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+2,NYIS,ZONB,2024-11-05 05:34:08.968823+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
 3,NYIS,ZONA,2024-11-05 05:34:55.831717+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 3,NYIS,ZONB,2024-11-05 05:34:55.832984+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
-3,NYIS,ZONC,2024-11-05 05:34:56.825905+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZOND,2024-11-05 05:34:58.683314+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZONE,2024-11-05 05:35:00.518441+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZONF,2024-11-05 05:35:02.446782+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZONG,2024-11-05 05:35:04.614086+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZONH,2024-11-05 05:35:06.207796+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZONI,2024-11-05 05:35:08.097463+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZONJ,2024-11-05 05:35:09.823799+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
-3,NYIS,ZONK,2024-11-05 05:35:11.438723+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817,2,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONC,2024-11-05 05:34:56.825905+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZOND,2024-11-05 05:34:58.683314+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONE,2024-11-05 05:35:00.518441+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONF,2024-11-05 05:35:02.446782+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONG,2024-11-05 05:35:04.614086+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONH,2024-11-05 05:35:06.207796+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONI,2024-11-05 05:35:08.097463+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONJ,2024-11-05 05:35:09.823799+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+3,NYIS,ZONK,2024-11-05 05:35:11.438723+00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,2024-10-01 02:00:00,2024-11-04 02:00:00,True,True,817.0,2.0,2,refresh,True,True,Missing values were found;  Missing values were imputed
+4,NYIS,ZONA,2024-11-05 06:18:53.921533+00:00,,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONB,2024-11-05 06:18:53.923160+00:00,,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONC,2024-11-05 06:18:53.925576+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZOND,2024-11-05 06:18:53.927755+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONE,2024-11-05 06:18:53.929798+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONF,2024-11-05 06:18:53.931919+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONG,2024-11-05 06:18:53.934277+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONH,2024-11-05 06:18:53.936362+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONI,2024-11-05 06:18:53.938384+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONJ,2024-11-05 06:18:53.940429+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+4,NYIS,ZONK,2024-11-05 06:18:53.942428+00:00,2024-11-04 03:00:00,2024-11-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
