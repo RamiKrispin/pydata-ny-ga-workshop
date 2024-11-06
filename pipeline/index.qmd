@@ -29,6 +29,8 @@ data["period"] = pd.to_datetime(data["period"])
 end_date = data["period"].max()
 start_date = end_date -  datetime.timedelta(days = 30)
 meta = pd.read_csv(meta_path)
+leaderboard_path = meta_json["backtesting"]["leaderboard_path"]
+leaderboard = pd.read_csv(leaderboard_path)
 ```
 
 ## row {.tabset}
@@ -45,4 +47,11 @@ p.show()
 #| title: Metadata
 
 gt.GT(meta.tail(20))
+```
+
+
+```{python}
+#| title: Forecast Leaderboard
+
+gt.GT(leaderboard)
 ```

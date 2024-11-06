@@ -101,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load Libraries</h2>
-<div id="6a6f1754" class="cell" data-execution_count="1">
+<div id="1dfebc77" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> eia_api <span class="im">as</span> api</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> eia_data </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> eia_impute <span class="im">as</span> impute</span>
@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="settings" class="level2">
 <h2 class="anchored" data-anchor-id="settings">Settings</h2>
 <p>Load settings:</p>
-<div id="c55e9928" class="cell" data-execution_count="2">
+<div id="d792bc63" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>raw_json <span class="op">=</span> <span class="bu">open</span>(<span class="st">"../settings/settings.json"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>meta_json <span class="op">=</span> json.load(raw_json)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prototype version</span></span>
@@ -137,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>forecast_settings <span class="op">=</span> meta_json[<span class="st">"forecast"</span>]</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>leaderboard_path <span class="op">=</span> meta_json[<span class="st">"backtesting"</span>][<span class="st">"leaderboard_path"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="33443885" class="cell" data-execution_count="3">
+<div id="4ada3ad0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>facets_template <span class="op">=</span> {</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"parent"</span> : <span class="va">None</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"subba"</span> : <span class="va">None</span></span>
@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>offset <span class="op">=</span> meta_json[<span class="st">"refresh"</span>][<span class="st">"offset"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a9a30e90" class="cell" data-execution_count="4">
+<div id="628202cc" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> api.eia_metadata(api_key <span class="op">=</span> eia_api_key, api_path <span class="op">=</span> api_path)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(metadata.meta.keys())</span>
@@ -157,57 +157,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2024-11-05T08</code></pre>
 </div>
 </div>
-<div id="f299f7f5" class="cell" data-execution_count="5">
+<div id="e6b62910" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>meta_obj <span class="op">=</span> eia_data.get_metadata(api_key <span class="op">=</span> eia_api_key, api_path <span class="op">=</span> api_path, meta_path <span class="op">=</span> meta_path, series <span class="op">=</span> series, offset <span class="op">=</span> <span class="dv">6</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>GT(meta_obj.request_meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<div id="tmxtfjycan" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="zqxgilrxdl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#tmxtfjycan table {
+#zqxgilrxdl table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#tmxtfjycan thead, tbody, tfoot, tr, td, th { border-style: none; }
+#zqxgilrxdl thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#tmxtfjycan p { margin: 0; padding: 0; }
- #tmxtfjycan .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #tmxtfjycan .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #tmxtfjycan .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #tmxtfjycan .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #tmxtfjycan .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #tmxtfjycan .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #tmxtfjycan .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #tmxtfjycan .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #tmxtfjycan .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #tmxtfjycan .gt_column_spanner_outer:first-child { padding-left: 0; }
- #tmxtfjycan .gt_column_spanner_outer:last-child { padding-right: 0; }
- #tmxtfjycan .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #tmxtfjycan .gt_spanner_row { border-bottom-style: hidden; }
- #tmxtfjycan .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #tmxtfjycan .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #tmxtfjycan .gt_from_md> :first-child { margin-top: 0; }
- #tmxtfjycan .gt_from_md> :last-child { margin-bottom: 0; }
- #tmxtfjycan .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #tmxtfjycan .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #tmxtfjycan .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #tmxtfjycan .gt_row_group_first td { border-top-width: 2px; }
- #tmxtfjycan .gt_row_group_first th { border-top-width: 2px; }
- #tmxtfjycan .gt_striped { background-color: rgba(128,128,128,0.05); }
- #tmxtfjycan .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #tmxtfjycan .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #tmxtfjycan .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #tmxtfjycan .gt_left { text-align: left; }
- #tmxtfjycan .gt_center { text-align: center; }
- #tmxtfjycan .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #tmxtfjycan .gt_font_normal { font-weight: normal; }
- #tmxtfjycan .gt_font_bold { font-weight: bold; }
- #tmxtfjycan .gt_font_italic { font-style: italic; }
- #tmxtfjycan .gt_super { font-size: 65%; }
- #tmxtfjycan .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #tmxtfjycan .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#zqxgilrxdl p { margin: 0; padding: 0; }
+ #zqxgilrxdl .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #zqxgilrxdl .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #zqxgilrxdl .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #zqxgilrxdl .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #zqxgilrxdl .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #zqxgilrxdl .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #zqxgilrxdl .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #zqxgilrxdl .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #zqxgilrxdl .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #zqxgilrxdl .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #zqxgilrxdl .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #zqxgilrxdl .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #zqxgilrxdl .gt_spanner_row { border-bottom-style: hidden; }
+ #zqxgilrxdl .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #zqxgilrxdl .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #zqxgilrxdl .gt_from_md> :first-child { margin-top: 0; }
+ #zqxgilrxdl .gt_from_md> :last-child { margin-bottom: 0; }
+ #zqxgilrxdl .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #zqxgilrxdl .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #zqxgilrxdl .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #zqxgilrxdl .gt_row_group_first td { border-top-width: 2px; }
+ #zqxgilrxdl .gt_row_group_first th { border-top-width: 2px; }
+ #zqxgilrxdl .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #zqxgilrxdl .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #zqxgilrxdl .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #zqxgilrxdl .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #zqxgilrxdl .gt_left { text-align: left; }
+ #zqxgilrxdl .gt_center { text-align: center; }
+ #zqxgilrxdl .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #zqxgilrxdl .gt_font_normal { font-weight: normal; }
+ #zqxgilrxdl .gt_font_bold { font-weight: bold; }
+ #zqxgilrxdl .gt_font_italic { font-style: italic; }
+ #zqxgilrxdl .gt_super { font-size: 65%; }
+ #zqxgilrxdl .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #zqxgilrxdl .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
 </div>
 </div>
-<div id="8cb9bf8d" class="cell" data-execution_count="6">
+<div id="1ad2a732" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> meta_obj.request_meta</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> meta_obj.last_index <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="va">None</span></span>
@@ -394,30 +394,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>meta_new.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 185634, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 286815, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 187222, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 289124, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 190183, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 291813, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 193039, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 293923, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 195318, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 295706, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 197679, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 298015, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 199961, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 300227, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 201966, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 302149, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 203698, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 303755, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 205382, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 305286, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 7, 45, 52, 208533, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}</code></pre>
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 6, 8, 26, 37, 306829, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-05 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+<pre><code>/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -430,14 +430,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -450,14 +450,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -470,14 +470,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -490,14 +490,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -510,14 +510,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -530,14 +530,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -550,14 +550,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -570,14 +570,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -590,14 +590,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -610,14 +610,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -630,14 +630,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -650,14 +650,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -670,14 +670,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -690,14 +690,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -710,14 +710,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -730,14 +730,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -750,14 +750,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -770,14 +770,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -790,14 +790,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_2974/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_7367/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -810,7 +810,7 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_2974/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_7367/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
@@ -819,55 +819,55 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </code></pre>
 </div>
 </div>
-<div id="0ce19cf0" class="cell" data-execution_count="7">
+<div id="9d491aec" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>GT(meta_new,rowname_col <span class="op">=</span> <span class="st">"index"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
-<div id="doskroxuaw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="kjpitbdrzl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#doskroxuaw table {
+#kjpitbdrzl table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#doskroxuaw thead, tbody, tfoot, tr, td, th { border-style: none; }
+#kjpitbdrzl thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#doskroxuaw p { margin: 0; padding: 0; }
- #doskroxuaw .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #doskroxuaw .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #doskroxuaw .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #doskroxuaw .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #doskroxuaw .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #doskroxuaw .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #doskroxuaw .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #doskroxuaw .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #doskroxuaw .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #doskroxuaw .gt_column_spanner_outer:first-child { padding-left: 0; }
- #doskroxuaw .gt_column_spanner_outer:last-child { padding-right: 0; }
- #doskroxuaw .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #doskroxuaw .gt_spanner_row { border-bottom-style: hidden; }
- #doskroxuaw .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #doskroxuaw .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #doskroxuaw .gt_from_md> :first-child { margin-top: 0; }
- #doskroxuaw .gt_from_md> :last-child { margin-bottom: 0; }
- #doskroxuaw .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #doskroxuaw .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #doskroxuaw .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #doskroxuaw .gt_row_group_first td { border-top-width: 2px; }
- #doskroxuaw .gt_row_group_first th { border-top-width: 2px; }
- #doskroxuaw .gt_striped { background-color: rgba(128,128,128,0.05); }
- #doskroxuaw .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #doskroxuaw .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #doskroxuaw .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #doskroxuaw .gt_left { text-align: left; }
- #doskroxuaw .gt_center { text-align: center; }
- #doskroxuaw .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #doskroxuaw .gt_font_normal { font-weight: normal; }
- #doskroxuaw .gt_font_bold { font-weight: bold; }
- #doskroxuaw .gt_font_italic { font-style: italic; }
- #doskroxuaw .gt_super { font-size: 65%; }
- #doskroxuaw .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #doskroxuaw .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#kjpitbdrzl p { margin: 0; padding: 0; }
+ #kjpitbdrzl .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #kjpitbdrzl .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #kjpitbdrzl .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #kjpitbdrzl .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #kjpitbdrzl .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kjpitbdrzl .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #kjpitbdrzl .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #kjpitbdrzl .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #kjpitbdrzl .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #kjpitbdrzl .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #kjpitbdrzl .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #kjpitbdrzl .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #kjpitbdrzl .gt_spanner_row { border-bottom-style: hidden; }
+ #kjpitbdrzl .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #kjpitbdrzl .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #kjpitbdrzl .gt_from_md> :first-child { margin-top: 0; }
+ #kjpitbdrzl .gt_from_md> :last-child { margin-bottom: 0; }
+ #kjpitbdrzl .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #kjpitbdrzl .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #kjpitbdrzl .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #kjpitbdrzl .gt_row_group_first td { border-top-width: 2px; }
+ #kjpitbdrzl .gt_row_group_first th { border-top-width: 2px; }
+ #kjpitbdrzl .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #kjpitbdrzl .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #kjpitbdrzl .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #kjpitbdrzl .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #kjpitbdrzl .gt_left { text-align: left; }
+ #kjpitbdrzl .gt_center { text-align: center; }
+ #kjpitbdrzl .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #kjpitbdrzl .gt_font_normal { font-weight: normal; }
+ #kjpitbdrzl .gt_font_bold { font-weight: bold; }
+ #kjpitbdrzl .gt_font_italic { font-style: italic; }
+ #kjpitbdrzl .gt_super { font-size: 65%; }
+ #kjpitbdrzl .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #kjpitbdrzl .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -898,7 +898,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONA</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.185634+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.286815+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -917,7 +917,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.187222+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.289124+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -936,7 +936,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONC</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.190183+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.291813+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -955,7 +955,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.193039+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.293923+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -974,7 +974,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.195318+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.295706+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -993,7 +993,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.197679+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.298015+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1012,7 +1012,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONG</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.199961+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.300227+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1031,7 +1031,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONH</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.201966+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.302149+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1050,7 +1050,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONI</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.203698+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.303755+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1069,7 +1069,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.205382+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.305286+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1088,7 +1088,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.208533+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.306829+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1111,7 +1111,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
         
 </div>
 </div>
-<div id="79aef750" class="cell" data-execution_count="8">
+<div id="11b2307a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>meta_updated <span class="op">=</span> eia_data.append_metadata(meta_path <span class="op">=</span> meta_path, meta <span class="op">=</span> meta_new, save <span class="op">=</span> save_meta, init <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>GT(meta_updated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1121,53 +1121,53 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
 </code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<div id="sdxzeokxfu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="uiyzkkjfmd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#sdxzeokxfu table {
+#uiyzkkjfmd table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#sdxzeokxfu thead, tbody, tfoot, tr, td, th { border-style: none; }
+#uiyzkkjfmd thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#sdxzeokxfu p { margin: 0; padding: 0; }
- #sdxzeokxfu .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #sdxzeokxfu .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #sdxzeokxfu .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #sdxzeokxfu .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #sdxzeokxfu .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #sdxzeokxfu .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #sdxzeokxfu .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #sdxzeokxfu .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #sdxzeokxfu .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #sdxzeokxfu .gt_column_spanner_outer:first-child { padding-left: 0; }
- #sdxzeokxfu .gt_column_spanner_outer:last-child { padding-right: 0; }
- #sdxzeokxfu .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #sdxzeokxfu .gt_spanner_row { border-bottom-style: hidden; }
- #sdxzeokxfu .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #sdxzeokxfu .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #sdxzeokxfu .gt_from_md> :first-child { margin-top: 0; }
- #sdxzeokxfu .gt_from_md> :last-child { margin-bottom: 0; }
- #sdxzeokxfu .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #sdxzeokxfu .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #sdxzeokxfu .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #sdxzeokxfu .gt_row_group_first td { border-top-width: 2px; }
- #sdxzeokxfu .gt_row_group_first th { border-top-width: 2px; }
- #sdxzeokxfu .gt_striped { background-color: rgba(128,128,128,0.05); }
- #sdxzeokxfu .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #sdxzeokxfu .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #sdxzeokxfu .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #sdxzeokxfu .gt_left { text-align: left; }
- #sdxzeokxfu .gt_center { text-align: center; }
- #sdxzeokxfu .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #sdxzeokxfu .gt_font_normal { font-weight: normal; }
- #sdxzeokxfu .gt_font_bold { font-weight: bold; }
- #sdxzeokxfu .gt_font_italic { font-style: italic; }
- #sdxzeokxfu .gt_super { font-size: 65%; }
- #sdxzeokxfu .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #sdxzeokxfu .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#uiyzkkjfmd p { margin: 0; padding: 0; }
+ #uiyzkkjfmd .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #uiyzkkjfmd .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #uiyzkkjfmd .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #uiyzkkjfmd .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #uiyzkkjfmd .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #uiyzkkjfmd .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #uiyzkkjfmd .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #uiyzkkjfmd .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #uiyzkkjfmd .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #uiyzkkjfmd .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #uiyzkkjfmd .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #uiyzkkjfmd .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #uiyzkkjfmd .gt_spanner_row { border-bottom-style: hidden; }
+ #uiyzkkjfmd .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #uiyzkkjfmd .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #uiyzkkjfmd .gt_from_md> :first-child { margin-top: 0; }
+ #uiyzkkjfmd .gt_from_md> :last-child { margin-bottom: 0; }
+ #uiyzkkjfmd .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #uiyzkkjfmd .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #uiyzkkjfmd .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #uiyzkkjfmd .gt_row_group_first td { border-top-width: 2px; }
+ #uiyzkkjfmd .gt_row_group_first th { border-top-width: 2px; }
+ #uiyzkkjfmd .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #uiyzkkjfmd .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #uiyzkkjfmd .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #uiyzkkjfmd .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #uiyzkkjfmd .gt_left { text-align: left; }
+ #uiyzkkjfmd .gt_center { text-align: center; }
+ #uiyzkkjfmd .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #uiyzkkjfmd .gt_font_normal { font-weight: normal; }
+ #uiyzkkjfmd .gt_font_bold { font-weight: bold; }
+ #uiyzkkjfmd .gt_font_italic { font-style: italic; }
+ #uiyzkkjfmd .gt_super { font-size: 65%; }
+ #uiyzkkjfmd .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #uiyzkkjfmd .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -6670,7 +6670,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONA</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.800277+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.290840+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6689,7 +6689,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.801865+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.292330+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6708,7 +6708,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONC</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.804631+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.294662+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6727,7 +6727,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.806672+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.296879+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6746,7 +6746,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.808602+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.299330+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6765,7 +6765,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.811051+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.301383+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6784,7 +6784,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONG</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.813648+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.303468+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6803,7 +6803,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONH</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.816402+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.305577+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6822,7 +6822,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONI</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.818932+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.307643+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6841,7 +6841,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.821630+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.309772+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6860,7 +6860,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">28</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_right">2024-11-06 07:40:16.823518+00:00</td>
+<td class="gt_row gt_right">2024-11-06 07:13:52.311832+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6879,7 +6879,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONA</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.239449+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.589771+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6898,7 +6898,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.244311+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.591253+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6917,7 +6917,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONC</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.251039+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.593766+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6936,7 +6936,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.253117+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.596064+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6955,7 +6955,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.254488+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.598270+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6974,7 +6974,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.255872+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.600879+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -6993,7 +6993,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONG</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.257556+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.602944+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7012,7 +7012,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONH</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.259193+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.605013+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7031,7 +7031,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONI</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.260824+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.607039+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7050,7 +7050,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.262399+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.609134+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7069,7 +7069,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">29</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_right">2024-11-06 07:40:49.264044+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:18:21.611190+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7088,7 +7088,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONA</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.144526+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.286815+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7107,7 +7107,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.146388+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.289124+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7126,7 +7126,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONC</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.148907+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.291813+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7145,7 +7145,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.151741+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.293923+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7164,7 +7164,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.154285+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.295706+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7183,7 +7183,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.156507+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.298015+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7202,7 +7202,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONG</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.158869+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.300227+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7221,7 +7221,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONH</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.160791+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.302149+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7240,7 +7240,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONI</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.162503+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.303755+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7259,7 +7259,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.165050+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.305286+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7278,425 +7278,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_right">30</td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_right">2024-11-06 07:42:32.166834+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONA</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.026004+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.027884+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONC</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.030205+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.032365+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.034542+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.036392+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONG</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.038316+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONH</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.040235+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONI</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.043335+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.045449+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">31</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_right">2024-11-06 07:44:03.047295+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONA</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.185634+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.187222+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONC</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.190183+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.193039+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.195318+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.197679+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONG</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.199961+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONH</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.201966+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONI</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.203698+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.205382+00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">2024-11-05 02:00:00</td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right"><na></na></td>
-<td class="gt_row gt_right">0</td>
-<td class="gt_row gt_left">refresh</td>
-<td class="gt_row gt_center">False</td>
-<td class="gt_row gt_center">True</td>
-<td class="gt_row gt_left">No new data is available;</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right">32</td>
-<td class="gt_row gt_left">NYIS</td>
-<td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_right">2024-11-06 07:45:52.208533+00:00</td>
+<td class="gt_row gt_right">2024-11-06 08:26:37.306829+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-05 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -7722,7 +7304,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <section id="plot-the-series" class="level3">
 <h3 class="anchored" data-anchor-id="plot-the-series">Plot the Series</h3>
 <p>We will use Plotly to visualize the series:</p>
-<div id="ad133482" class="cell" data-execution_count="9">
+<div id="58891784" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> data <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span> <span class="op">=</span> data.sort_values(by <span class="op">=</span> [<span class="st">"subba"</span>, <span class="st">"period"</span>])</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> px.line(<span class="bu">input</span>, x<span class="op">=</span><span class="st">"period"</span>, y<span class="op">=</span><span class="st">"value"</span>, color<span class="op">=</span><span class="st">"subba"</span>)</span>
@@ -7739,21 +7321,21 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <section id="forecast-refresh" class="level2">
 <h2 class="anchored" data-anchor-id="forecast-refresh">Forecast Refresh</h2>
 <p>Reload the data:</p>
-<div id="fb62a009" class="cell" data-execution_count="10">
+<div id="a620a82f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(data_path)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> df[[<span class="st">"period"</span>, <span class="st">"subba"</span>, <span class="st">"y"</span>]].copy()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ts[<span class="st">"ds"</span>] <span class="op">=</span> pd.to_datetime(ts[<span class="st">"period"</span>])</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> ts[[<span class="st">"ds"</span>, <span class="st">"subba"</span>, <span class="st">"y"</span>]]</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> ts.rename(columns<span class="op">=</span>{<span class="st">"subba"</span>:<span class="st">"unique_id"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_2974/4105294232.py:1: DtypeWarning:
+<pre><code>/tmp/ipykernel_7367/4105294232.py:1: DtypeWarning:
 
 Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_memory=False.
 </code></pre>
 </div>
 </div>
 <p>Check if new data is available and update the forecast:</p>
-<div id="10f384fa" class="cell" data-execution_count="11">
+<div id="66b74e2b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>forecast_log <span class="op">=</span> pd.read_csv(forecast_settings[<span class="st">"forecast_log_path"</span>])</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>forecast_log <span class="op">=</span> pd.read_csv(forecast_settings[<span class="st">"forecast_log_path"</span>])</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>forecast_log[<span class="st">"end"</span>] <span class="op">=</span> pd.to_datetime(forecast_log[<span class="st">"end"</span>])</span>
@@ -7857,7 +7439,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <span id="cb17-101"><a href="#cb17-101" aria-hidden="true" tabindex="-1"></a>    forecast_new.to_csv(forecast_settings[<span class="st">"forecast_path"</span>], index <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb17-102"><a href="#cb17-102" aria-hidden="true" tabindex="-1"></a>    forecast_log_new.to_csv(forecast_settings[<span class="st">"forecast_log_path"</span>], index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9dfbdd2b" class="cell" data-execution_count="12">
+<div id="69e39fb2" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>forecast_log <span class="op">=</span> pd.read_csv(forecast_settings[<span class="st">"forecast_log_path"</span>])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>update <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">any</span>(forecast_log[<span class="st">"score"</span>] <span class="op">==</span> <span class="va">False</span>):</span>
@@ -7883,53 +7465,53 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    forecast_log.to_csv(forecast_settings[<span class="st">"forecast_log_path"</span>], index <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>GT(forecast_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<div id="znojirnwrm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="wnajacdwil" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#znojirnwrm table {
+#wnajacdwil table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#znojirnwrm thead, tbody, tfoot, tr, td, th { border-style: none; }
+#wnajacdwil thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#znojirnwrm p { margin: 0; padding: 0; }
- #znojirnwrm .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #znojirnwrm .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #znojirnwrm .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #znojirnwrm .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #znojirnwrm .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #znojirnwrm .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #znojirnwrm .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #znojirnwrm .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #znojirnwrm .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #znojirnwrm .gt_column_spanner_outer:first-child { padding-left: 0; }
- #znojirnwrm .gt_column_spanner_outer:last-child { padding-right: 0; }
- #znojirnwrm .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #znojirnwrm .gt_spanner_row { border-bottom-style: hidden; }
- #znojirnwrm .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #znojirnwrm .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #znojirnwrm .gt_from_md> :first-child { margin-top: 0; }
- #znojirnwrm .gt_from_md> :last-child { margin-bottom: 0; }
- #znojirnwrm .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #znojirnwrm .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #znojirnwrm .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #znojirnwrm .gt_row_group_first td { border-top-width: 2px; }
- #znojirnwrm .gt_row_group_first th { border-top-width: 2px; }
- #znojirnwrm .gt_striped { background-color: rgba(128,128,128,0.05); }
- #znojirnwrm .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #znojirnwrm .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #znojirnwrm .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #znojirnwrm .gt_left { text-align: left; }
- #znojirnwrm .gt_center { text-align: center; }
- #znojirnwrm .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #znojirnwrm .gt_font_normal { font-weight: normal; }
- #znojirnwrm .gt_font_bold { font-weight: bold; }
- #znojirnwrm .gt_font_italic { font-style: italic; }
- #znojirnwrm .gt_super { font-size: 65%; }
- #znojirnwrm .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #znojirnwrm .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#wnajacdwil p { margin: 0; padding: 0; }
+ #wnajacdwil .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #wnajacdwil .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #wnajacdwil .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #wnajacdwil .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #wnajacdwil .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wnajacdwil .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wnajacdwil .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #wnajacdwil .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #wnajacdwil .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #wnajacdwil .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #wnajacdwil .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #wnajacdwil .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #wnajacdwil .gt_spanner_row { border-bottom-style: hidden; }
+ #wnajacdwil .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #wnajacdwil .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #wnajacdwil .gt_from_md> :first-child { margin-top: 0; }
+ #wnajacdwil .gt_from_md> :last-child { margin-bottom: 0; }
+ #wnajacdwil .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #wnajacdwil .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #wnajacdwil .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #wnajacdwil .gt_row_group_first td { border-top-width: 2px; }
+ #wnajacdwil .gt_row_group_first th { border-top-width: 2px; }
+ #wnajacdwil .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #wnajacdwil .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #wnajacdwil .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #wnajacdwil .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #wnajacdwil .gt_left { text-align: left; }
+ #wnajacdwil .gt_center { text-align: center; }
+ #wnajacdwil .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #wnajacdwil .gt_font_normal { font-weight: normal; }
+ #wnajacdwil .gt_font_bold { font-weight: bold; }
+ #wnajacdwil .gt_font_italic { font-style: italic; }
+ #wnajacdwil .gt_super { font-size: 65%; }
+ #wnajacdwil .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #wnajacdwil .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -7962,7 +7544,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:10</td>
+<td class="gt_row gt_right">06/11/2024 07:55:09</td>
 <td class="gt_row gt_center">True</td>
 <td class="gt_row gt_right">0.043652243835248</td>
 <td class="gt_row gt_right">95.44281545897655</td>
@@ -7971,18 +7553,18 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 </tr>
 <tr class="even">
 <td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_left">LinearRegression</td>
+<td class="gt_row gt_left">XGBRegressor</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:11</td>
+<td class="gt_row gt_right">06/11/2024 07:55:10</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0504893782132061</td>
-<td class="gt_row gt_right">60.754077724399714</td>
-<td class="gt_row gt_right">0.7916666666666666</td>
+<td class="gt_row gt_right">0.0489702879754926</td>
+<td class="gt_row gt_right">55.11185472410671</td>
+<td class="gt_row gt_right">0.6666666666666666</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="odd">
@@ -7994,7 +7576,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:11</td>
+<td class="gt_row gt_right">06/11/2024 07:55:10</td>
 <td class="gt_row gt_center">True</td>
 <td class="gt_row gt_right">0.0294291776131267</td>
 <td class="gt_row gt_right">54.89107179763394</td>
@@ -8003,50 +7585,50 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 </tr>
 <tr class="even">
 <td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_left">XGBRegressor</td>
+<td class="gt_row gt_left">LGBMRegressor</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:12</td>
+<td class="gt_row gt_right">06/11/2024 07:55:11</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0254184118437914</td>
-<td class="gt_row gt_right">17.952924462692557</td>
+<td class="gt_row gt_right">0.0229545288051701</td>
+<td class="gt_row gt_right">18.555757547214046</td>
 <td class="gt_row gt_right">1.0</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_left">LGBMRegressor</td>
+<td class="gt_row gt_left">LinearRegression</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:13</td>
+<td class="gt_row gt_right">06/11/2024 07:55:12</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0281277404084081</td>
-<td class="gt_row gt_right">25.62980064694305</td>
-<td class="gt_row gt_right">1.0</td>
+<td class="gt_row gt_right">0.0221764717319209</td>
+<td class="gt_row gt_right">21.898557451386345</td>
+<td class="gt_row gt_right">0.9583333333333334</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_left">LGBMRegressor</td>
+<td class="gt_row gt_left">LinearRegression</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:14</td>
+<td class="gt_row gt_right">06/11/2024 07:55:12</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0220462882532666</td>
-<td class="gt_row gt_right">32.18556947871871</td>
-<td class="gt_row gt_right">0.9166666666666666</td>
+<td class="gt_row gt_right">0.0268308066646414</td>
+<td class="gt_row gt_right">40.53750100987647</td>
+<td class="gt_row gt_right">1.0</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="odd">
@@ -8058,7 +7640,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:14</td>
+<td class="gt_row gt_right">06/11/2024 07:55:13</td>
 <td class="gt_row gt_center">True</td>
 <td class="gt_row gt_right">0.1035057362451028</td>
 <td class="gt_row gt_right">105.17885990069207</td>
@@ -8068,65 +7650,65 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <tr class="even">
 <td class="gt_row gt_left">ZONH</td>
 <td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:15</td>
+<td class="gt_row gt_right">06/11/2024 07:55:14</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0901919389808939</td>
-<td class="gt_row gt_right">23.38445954491337</td>
-<td class="gt_row gt_right">0.4166666666666667</td>
+<td class="gt_row gt_right">0.1064112030516249</td>
+<td class="gt_row gt_right">25.45401422957301</td>
+<td class="gt_row gt_right">0.4583333333333333</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left">ZONI</td>
 <td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:16</td>
+<td class="gt_row gt_right">06/11/2024 07:55:15</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0666144091182032</td>
-<td class="gt_row gt_right">42.637378723683696</td>
-<td class="gt_row gt_right">0.6666666666666666</td>
+<td class="gt_row gt_right">0.0505628646804763</td>
+<td class="gt_row gt_right">33.89463797766538</td>
+<td class="gt_row gt_right">0.8333333333333334</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">LGBMRegressor</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:16</td>
+<td class="gt_row gt_right">06/11/2024 07:55:16</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0884847006161442</td>
-<td class="gt_row gt_right">409.4930344263506</td>
-<td class="gt_row gt_right">0.1666666666666666</td>
+<td class="gt_row gt_right">0.0656605589287828</td>
+<td class="gt_row gt_right">314.9741894798421</td>
+<td class="gt_row gt_right">0.0833333333333333</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">LinearRegression</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-01</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-02 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:17</td>
+<td class="gt_row gt_right">06/11/2024 07:55:16</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0785712519402685</td>
-<td class="gt_row gt_right">158.0313963522541</td>
-<td class="gt_row gt_right">0.4166666666666667</td>
+<td class="gt_row gt_right">0.1367364850464813</td>
+<td class="gt_row gt_right">270.2176330551692</td>
+<td class="gt_row gt_right">0.3333333333333333</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="even">
@@ -8138,7 +7720,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:18</td>
+<td class="gt_row gt_right">06/11/2024 07:55:17</td>
 <td class="gt_row gt_center">True</td>
 <td class="gt_row gt_right">0.0406913003603799</td>
 <td class="gt_row gt_right">71.60527947080918</td>
@@ -8147,18 +7729,18 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_left">LinearRegression</td>
+<td class="gt_row gt_left">XGBRegressor</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:18</td>
+<td class="gt_row gt_right">06/11/2024 07:55:18</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0924063444551781</td>
-<td class="gt_row gt_right">99.20226287586397</td>
-<td class="gt_row gt_right">0.5833333333333334</td>
+<td class="gt_row gt_right">0.0632724334151587</td>
+<td class="gt_row gt_right">60.72460597309195</td>
+<td class="gt_row gt_right">0.75</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="even">
@@ -8170,7 +7752,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:18</td>
+<td class="gt_row gt_right">06/11/2024 07:55:18</td>
 <td class="gt_row gt_center">True</td>
 <td class="gt_row gt_right">0.1093787429724178</td>
 <td class="gt_row gt_right">180.95626539971647</td>
@@ -8179,49 +7761,49 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_left">XGBRegressor</td>
+<td class="gt_row gt_left">LGBMRegressor</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:20</td>
+<td class="gt_row gt_right">06/11/2024 07:55:19</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0309752240517509</td>
-<td class="gt_row gt_right">23.35541659301316</td>
-<td class="gt_row gt_right">0.8333333333333334</td>
+<td class="gt_row gt_right">0.0300886974736746</td>
+<td class="gt_row gt_right">23.02897283243766</td>
+<td class="gt_row gt_right">0.9166666666666666</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_left">LGBMRegressor</td>
+<td class="gt_row gt_left">LinearRegression</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:20</td>
+<td class="gt_row gt_right">06/11/2024 07:55:19</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.1099152466704746</td>
-<td class="gt_row gt_right">82.7720247128798</td>
-<td class="gt_row gt_right">0.5833333333333334</td>
+<td class="gt_row gt_right">0.1260882106253828</td>
+<td class="gt_row gt_right">97.36083704095964</td>
+<td class="gt_row gt_right">0.75</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_left">LGBMRegressor</td>
+<td class="gt_row gt_left">LinearRegression</td>
 <td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:21</td>
+<td class="gt_row gt_right">06/11/2024 07:55:20</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0618192359712299</td>
-<td class="gt_row gt_right">78.11215892207377</td>
+<td class="gt_row gt_right">0.073546742306513</td>
+<td class="gt_row gt_right">93.86685356486336</td>
 <td class="gt_row gt_right">0.7916666666666666</td>
 <td class="gt_row gt_center">True</td>
 </tr>
@@ -8234,7 +7816,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:22</td>
+<td class="gt_row gt_right">06/11/2024 07:55:20</td>
 <td class="gt_row gt_center">True</td>
 <td class="gt_row gt_right">0.0712675709324085</td>
 <td class="gt_row gt_right">65.10305390846375</td>
@@ -8244,65 +7826,65 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <tr class="odd">
 <td class="gt_row gt_left">ZONH</td>
 <td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:22</td>
+<td class="gt_row gt_right">06/11/2024 07:55:21</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0760174959884898</td>
-<td class="gt_row gt_right">21.87359193772833</td>
-<td class="gt_row gt_right">0.5416666666666666</td>
+<td class="gt_row gt_right">0.0727322594079201</td>
+<td class="gt_row gt_right">20.817034743164285</td>
+<td class="gt_row gt_right">0.5</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left">ZONI</td>
 <td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:23</td>
+<td class="gt_row gt_right">06/11/2024 07:55:23</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0274255109232011</td>
-<td class="gt_row gt_right">20.592813610296048</td>
+<td class="gt_row gt_right">0.0225743780372122</td>
+<td class="gt_row gt_right">13.925164828678495</td>
 <td class="gt_row gt_right">1.0</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">LGBMRegressor</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:24</td>
+<td class="gt_row gt_right">06/11/2024 07:55:23</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0178018041252058</td>
-<td class="gt_row gt_right">84.37815185639539</td>
+<td class="gt_row gt_right">0.0152176194269242</td>
+<td class="gt_row gt_right">78.30077282677799</td>
 <td class="gt_row gt_right">1.0</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_left">XGBRegressor</td>
-<td class="gt_row gt_left">model3</td>
+<td class="gt_row gt_left">LinearRegression</td>
+<td class="gt_row gt_left">model4</td>
 <td class="gt_row gt_right">2024-11-02</td>
 <td class="gt_row gt_right">2024-11-03</td>
 <td class="gt_row gt_right">2024-11-03 23:00:00</td>
 <td class="gt_row gt_right">24</td>
 <td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">06/11/2024 06:46:24</td>
+<td class="gt_row gt_right">06/11/2024 07:55:24</td>
 <td class="gt_row gt_center">True</td>
-<td class="gt_row gt_right">0.0273739992630903</td>
-<td class="gt_row gt_right">61.10026806978995</td>
-<td class="gt_row gt_right">1.0</td>
+<td class="gt_row gt_right">0.0500792251687481</td>
+<td class="gt_row gt_right">95.35071556561104</td>
+<td class="gt_row gt_right">0.7916666666666666</td>
 <td class="gt_row gt_center">True</td>
 </tr>
 </tbody>
