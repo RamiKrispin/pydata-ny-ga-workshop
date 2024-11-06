@@ -1,0 +1,188 @@
+import pandas as pd
+from statistics import mean
+from mlforecast import MLForecast
+from mlforecast.target_transforms import Differences
+from mlforecast.utils import PredictionIntervals
+from window_ops.expanding import expanding_mean
+from lightgbm import LGBMRegressor
+from xgboost import XGBRegressor
+from sklearn.linear_model import LinearRegression
+
+def models_reformat(models):
+    for i in range(len(models)):
+        if isinstance(models[i], str):
+            models[i] = eval(models[i])
+
+
+def mape(y, yhat):
+    mape = mean(abs(y - yhat)/ y) 
+    return mape
+
+def rmse(y, yhat):
+    rmse = (mean((y - yhat) ** 2 )) ** 0.5
+    return rmse
+
+def coverage(y, lower, upper):
+    coverage = sum((y <= upper) & (y >= lower)) / len(y)
+    return coverage
+
+def bkt_to_long(bkt, models, level):
+    f = None
+    models_reformat(models = models)
+    for m in models:      
+        m_name = type(m).__name__
+        temp = bkt[["unique_id","ds", "y", "cutoff"]]
+        temp["forecast"] = bkt[m_name] 
+        temp["lower"] = bkt[m_name + "-lo-" + str(level)]
+        temp["upper"] = bkt[m_name + "-hi-" + str(level)]
+        temp["model"] = m_name
+        if f is None:
+            f = temp
+        else:
+            f = pd.concat([f, temp])
+
+    cutoff = f["cutoff"].unique()
+    partitions_mapping  = pd.DataFrame({"cutoff": cutoff})
+    partitions_mapping["partition"] = range(1, len(cutoff) + 1)
+    f = f.merge(right = partitions_mapping, left_on = "cutoff", right_on = "cutoff")
+
+    return f
+
+
+def backtesting_ml(input, args, settings):
+    models_list = args["models"].copy()
+    models_reformat(models = models_list)
+    if "lags" not in args.keys():
+        args["lags"] = None
+    if "date_features" not in args.keys():
+        args["date_features"] = None
+    if "target_transforms" not in args.keys():
+        args["target_transforms"] = None
+
+    mlf = MLForecast(
+        models=models_list, 
+        freq= args["freq"],
+        date_features = args["date_features"],
+        target_transforms= args["target_transforms"],
+        lags = args["lags"])
+
+    bkt = mlf.cross_validation(
+        df=input,
+        h=settings["h"],
+        n_windows=settings["n_windows"],
+        prediction_intervals = PredictionIntervals(n_windows=settings["prediction_intervals"]["n_windows"], 
+        h = settings["prediction_intervals"]["h"], 
+        method = settings["prediction_intervals"]["method"]),
+        level = [settings["prediction_intervals"]["level"]])
+
+    bkt_long = bkt_to_long(bkt = bkt, 
+    models = models_list , 
+    level = settings["prediction_intervals"]["level"])
+
+    return bkt_long
+
+def backtesting(input, models, settings):
+    
+    bkt_df = None
+    for m in models.keys():
+        if models[m]["type"] == "mlforecast":
+            args = models[m]["args"]
+            bkt_temp = backtesting_ml(input, args = args, settings = settings)
+            bkt_temp["label"] = m
+            bkt_temp["type"] = "mlforecast"
+            if bkt_df is None:
+                bkt_df = bkt_temp
+            else:
+                bkt_df = pd.concat([bkt_df, bkt_temp])
+
+    return bkt_df
+
+def bkt_score(bkt):
+    class backtesting_score:
+        def __init__(self, score, leaderboard, top):
+            self.score = score  
+            self.leaderboard = leaderboard
+            self.top = top
+
+
+    score_df = None
+    for u in bkt["unique_id"].unique():
+        for l in bkt["label"].unique():
+            for p in bkt["partition"].unique():
+                bkt_sub = bkt[(bkt["unique_id"] == u) & (bkt["label"] == l) & (bkt["partition"] == p)]
+                for m in bkt_sub["model"].unique():
+                    bkt_model = bkt_sub[bkt_sub["model"] == m]
+                    mape_score = mape(y = bkt_model["y"], yhat = bkt_model["forecast"]) 
+                    rmse_score = rmse(y = bkt_model["y"], yhat = bkt_model["forecast"]) 
+                    coverage_score = coverage(y = bkt_model["y"], lower = bkt_model["lower"], upper = bkt_model["upper"]) 
+                    score_temp = {
+                        "unique_id": u,
+                        "label": l,
+                        "type": bkt_model["type"].unique()[0],
+                        "partition": p,
+                        "model": m,
+                        "mape": mape_score,
+                        "rmse": rmse_score,
+                        "coverage": coverage_score
+                    }
+
+                    if score_df is None:
+                        score_df = pd.DataFrame([score_temp])
+                    else:
+                        score_df = pd.concat([score_df, pd.DataFrame([score_temp])])
+    score_df["model_unique_id"] = score_df["label"] + "_" +score_df["model"]
+    score_df.reset_index(drop=True, inplace=True)
+    leaderboard_df = bkt_leaderboard(score = score_df)
+    top_df = top_models(leaderboard = leaderboard_df)
+
+    output = backtesting_score(score = score_df, 
+                            leaderboard = leaderboard_df,
+                            top = top_df)
+    
+    return output
+
+
+def bkt_leaderboard(score):
+    leaderboard = None
+    for i in score["unique_id"].unique():
+        for m in score["model_unique_id"].unique():
+            l = score[(score["model_unique_id"] == m) & (score["unique_id"] == i)]
+
+            mape = mean(l["mape"])
+            rmse = mean(l["rmse"])
+            coverage = mean(l["coverage"])
+
+            temp = {
+                "model_unique_id": m,
+                "unique_id": i,
+                "label": l["label"].unique()[0],
+                "model": l["model"].unique()[0],
+                "type": l["type"].unique()[0],
+                "partitions": l["partition"].max(),
+                "avg_mape": mape,
+                "avg_rmse": rmse,
+                "avg_coverage": coverage
+            }
+
+            if leaderboard is None:
+                leaderboard = pd.DataFrame([temp])
+            else:
+                leaderboard = pd.concat([leaderboard, pd.DataFrame([temp])])
+    leaderboard.reset_index(drop=True, inplace=True)
+    return leaderboard
+
+
+def top_models(leaderboard, metric = "mape"):
+    top = None
+    for i in leaderboard["unique_id"].unique():
+        l = leaderboard[leaderboard["unique_id"] == i]
+        if metric in ["mape", "rmse"]:
+            l_top = l[l["avg_" + metric] == l["avg_" + metric].min()]
+        elif metric == "coverage":
+            l_top =  l[l["avg_" + metric] == l["avg_" + metric].max()]
+        if top is None:
+            top = l_top
+        else:
+            top = pd.concat([top, l_top])
+    top.reset_index(drop=True, inplace=True)
+    return top
