@@ -129,7 +129,7 @@
     "backtesting": {
         "leaderboard_path": "../data/bkt_leader.csv",
         "settings": {
-            "n_windows": 2,
+            "n_windows": 20,
             "h": 24,
             "prediction_intervals": {
                 "n_windows": 5,
