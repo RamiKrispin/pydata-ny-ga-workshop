@@ -42,7 +42,8 @@ save_data = True
 save_meta = True
 
 eia_api_key = os.getenv('EIA_API_KEY')
-
+forecast_settings = meta_json["forecast"]
+leaderboard_path = meta_json["backtesting"]["leaderboard_path"]
 ```
 
 
@@ -181,4 +182,155 @@ else:
 
 
 ## Forecast Refresh
+
+Reload the data:
+```{python}
+df = pd.read_csv(data_path)
+ts = df[["period", "subba", "y"]].copy()
+ts["ds"] = pd.to_datetime(ts["period"])
+ts = ts[["ds", "subba", "y"]]
+ts = ts.rename(columns={"subba":"unique_id"})
+```
+
+Check if new data is available and update the forecast:
+
+```{python}
+forecast_log = pd.read_csv(forecast_settings["forecast_log_path"])
+forecast_log = pd.read_csv(forecast_settings["forecast_log_path"])
+forecast_log["end"] = pd.to_datetime(forecast_log["end"])
+models_list = pd.read_csv(leaderboard_path)
+
+forecast_new = None
+forecast_log_new = None
+for i in forecast_log["unique_id"].unique():
+    end_fc = forecast_log[forecast_log["unique_id"] == i]["end"].max()
+    d = ts[ts["unique_id"] == i]
+    end_filter = d["ds"].max().floor(freq = "d") - datetime.timedelta(hours = 1)
+    if end_filter > end_fc:
+        print("New data points are available to series:", i, "refresh the forecast")
+        input = d[d["ds"] <= end_filter]
+        label = models_list[models_list["unique_id"] == i]["label"][0]
+        model = models_list[models_list["unique_id"] == i]["model"][0]
+        m = models_settings[label].copy()
+        m["args"]["models"] = [model + "()"]
+        if m["type"] == "mlforecast":
+            args = m["args"]
+            print(args)
+            if "lags" not in args.keys():
+                args["lags"] = None
+            if "date_features" not in args.keys():
+                args["date_features"] = None
+            if "target_transforms" not in args.keys():
+                args["target_transforms"] = None
+            
+            forecast_utils.models_reformat(args["models"])
+            
+            mlf = MLForecast(
+                models =args["models"], 
+                freq= args["freq"],
+                date_features = args["date_features"],
+                target_transforms= args["target_transforms"],
+                lags = args["lags"])
+            
+            mlf.fit(df = input,  fitted=True, 
+                    prediction_intervals = PredictionIntervals(n_windows = forecast_settings["prediction_intervals"]["n_windows"], h = forecast_settings["prediction_intervals"]["h"], 
+                    method = forecast_settings["prediction_intervals"]["method"] ))
+            fc_raw = None
+            fc = None
+            fc_raw = mlf.predict(forecast_settings["h"], 
+            level  = [forecast_settings["prediction_intervals"]["level"]])
+            fc = forecast_utils.fc_to_long(fc = fc_raw, models = args["models"], level = forecast_settings["prediction_intervals"]["level"])
+            fc["label"] = label
+            forecast_label = str(t.date().strftime("%Y-%m-%d"))
+            fc["forecast_label"] = forecast_label
+
+            if fc is not None and len(fc) > 0:
+                fc_log = {
+                    "unique_id": id,
+                    "model": model,
+                    "label": label,
+                    "forecast_label": forecast_label,
+                    "start": fc["ds"].min(),
+                    "end": fc["ds"].max(),
+                    "n_obs": len(fc),
+                    "h": forecast_settings["h"],
+                    "refresh_time": datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                }
+                if fc_log["n_obs"] == fc_log["h"]:
+                    fc_log["success"] = True
+                else:
+                    fc_log["success"] = False
+            else:
+                fc_log = {
+                    "unique_id": id,
+                    "model": model,
+                    "label": forecast_label,
+                    "forecast_label": forecast_label
+                    }
+                fc_log["start"] = None
+                fc_log["end"] = None
+                fc_log["n_obs"] = None
+                fc_log["h"] = forecast_settings["h"]
+                fc_log["refresh_time"] = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                fc_log["success"] = False
+            fc_log["mape"] = None
+            fc_log["rmse"] = None
+            fc_log["coverage"] = None
+            fc_log["score"] = False
+
+            if forecast_log is None:
+                forecast_log = pd.DataFrame([fc_log])
+            else:
+                forecast_log = pd.concat([forecast_log, pd.DataFrame([fc_log])])    
+
+            if forecast is None:
+                forecast = fc
+            else:
+                forecast = pd.concat([forecast, fc])
+
+if forecast_new is not None:
+    forecast_new = forecast_new.sort_values(by = ["forecast_label", "unique_id"])
+    forecast_new.reset_index(drop=True, inplace=True)
+
+    forecast_log_new = forecast_log_new.sort_values(by = ["forecast_label", "unique_id"])
+    forecast_log_new.reset_index(drop=True, inplace=True)
+
+    forecast_new.to_csv(forecast_settings["forecast_path"], index = False)
+    forecast_log_new.to_csv(forecast_settings["forecast_log_path"], index = False)
+
+```
+        
+
+
+
+
+```{python}
+forecast_log = pd.read_csv(forecast_settings["forecast_log_path"])
+update = False
+if any(forecast_log["score"] == False):
+    forecast_log["end"] = pd.to_datetime(forecast_log["end"])
+    forecast = pd.read_csv(forecast_settings["forecast_path"])
+    forecast["ds"] = pd.to_datetime(forecast["ds"])
+
+    for index, row in forecast_log.iterrows():
+        id = row["unique_id"]
+        forecast_label = row["forecast_label"]
+
+        fc = forecast[(forecast["forecast_label"] == forecast_label) & (forecast["unique_id"] == id)]
+
+        fc = fc.merge(ts, left_on = ["unique_id", "ds"], right_on = ["unique_id", "ds"], how="left")
+        forecast_log.at[index, "mape"] = forecast_utils.mape(y = fc["y"], yhat = fc["forecast"])
+        forecast_log.at[index,"rmse"] = forecast_utils.rmse(y = fc["y"], yhat = fc["forecast"])
+        forecast_log.at[index, "coverage"] =  forecast_utils.coverage(y = fc["y"], lower = fc["lower"], upper = fc["upper"])
+        if len(fc) == row["h"]:
+            forecast_log.at[index,"score"] = True
+        update = True
+
+if update:
+    forecast_log.to_csv(forecast_settings["forecast_log_path"], index = False)
+
+GT(forecast_log)
+```
+
+
 

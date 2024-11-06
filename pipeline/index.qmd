@@ -1,0 +1,48 @@
+--- 
+title: "New York Independent System Operator Hourly Demand"
+subtitle: "PyData NYC 2024"
+format: dashboard
+--- 
+
+```{python}
+import plotly.graph_objects as go
+import plotly.express as px
+import pandas as pd
+import requests
+import json
+import os
+import datetime
+import great_tables as gt
+import plot_fc
+```
+
+```{python}
+settings_path = "../settings/settings.json"
+raw_json = open(settings_path)
+meta_json = json.load(raw_json)
+meta_path = meta_json["meta_path"]
+data_path = meta_json["data"]["data_path"]
+
+data = pd.read_csv(data_path)
+data["period"] = pd.to_datetime(data["period"])
+
+end_date = data["period"].max()
+start_date = end_date -  datetime.timedelta(days = 30)
+meta = pd.read_csv(meta_path)
+```
+
+## row {.tabset}
+
+```{python}
+#| title: Hourly Demand By Provider 
+
+p = plot_fc.plot_forecast(days = 3, settings_path = settings_path)
+
+p.show()
+```
+
+```{python}
+#| title: Metadata
+
+gt.GT(meta.tail(20))
+```
