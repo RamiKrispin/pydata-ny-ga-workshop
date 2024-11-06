@@ -1,0 +1,250 @@
+---
+title: "Initial Forecast"
+format:
+    html:
+        code-fold: false
+jupyter: python3
+---
+
+
+## Load Libraries
+
+```{python}
+import pandas as pd
+import numpy as np
+import requests
+import json
+import os
+import mlflow
+import datetime
+import plotly.graph_objects as go
+from great_tables import GT
+
+
+from statsforecast import StatsForecast
+from statsforecast.models import (
+    HoltWinters,
+    CrostonClassic as Croston, 
+    HistoricAverage,
+    DynamicOptimizedTheta,
+    SeasonalNaive,
+    AutoARIMA,
+    AutoETS,
+    AutoTBATS,
+    MSTL
+
+)
+
+from mlforecast import MLForecast
+from mlforecast.target_transforms import Differences
+from mlforecast.utils import PredictionIntervals
+from window_ops.expanding import expanding_mean
+from lightgbm import LGBMRegressor
+from xgboost import XGBRegressor
+from sklearn.linear_model import LinearRegression
+from utilsforecast.plotting import plot_series
+from statistics import mean
+
+import forecast_utils
+```
+
+
+
+
+## Data
+Loading metadata:
+
+```{python}
+raw_json = open("../settings/settings.json")
+meta_json = json.load(raw_json)
+
+meta_path = meta_json["meta_path"]
+data_path = meta_json["data"]["data_path"]
+series_mapping_path = meta_json["data"]["series_mapping_path"]
+
+bkt_settings = meta_json["backtesting"]["settings"]
+models_settings = meta_json["backtesting"]["models"]
+leaderboard_path = meta_json["backtesting"]["leaderboard_path"]
+forecast_settings = meta_json["forecast"]
+```
+
+Loading the dataset:
+```{python}
+df = pd.read_csv(data_path)
+ts = df[["period", "subba", "y"]].copy()
+ts["ds"] = pd.to_datetime(ts["period"])
+ts = ts[["ds", "subba", "y"]]
+ts = ts.rename(columns={"subba":"unique_id"})
+
+GT(ts.head(10))
+```
+
+
+Defining the forecast start time:
+
+```{python}
+num_fc = 2
+start = ts.groupby(['unique_id'])['ds'].max().min().floor(freq = "d") - datetime.timedelta(hours = 1) - datetime.timedelta(hours = 24 * num_fc)
+
+time_vec = []
+for t in range(num_fc):
+    time_vec.append(start + datetime.timedelta(hours = 24 *  t))
+
+```
+
+```{python}
+fig = plot_series(ts, max_ids= len(ts.unique_id.unique()), 
+plot_random=False, 
+max_insample_length=24 * 30 * 12,
+engine = "plotly")
+fig.update_layout(title = "The Hourly Demand for Electricity in New York by Independent System Operator")
+fig
+```
+
+
+Load the forecast models list:
+
+```{python}
+models_list = pd.read_csv(leaderboard_path)
+GT(models_list)
+```
+
+
+```{python}
+forecast = None
+forecast_log = None
+for t in time_vec:
+    for index, row in models_list.iterrows():
+        label = row["label"]
+        model = row["model"]
+        id = row["unique_id"]
+        m = models_settings[label].copy()
+        m["args"]["models"] = [model + "()"]
+        input = ts[(ts["ds"] <= t) & (ts["unique_id"] == id)]
+        if m["type"] == "mlforecast":
+            args = m["args"]
+            print(args)
+            if "lags" not in args.keys():
+                args["lags"] = None
+            if "date_features" not in args.keys():
+                args["date_features"] = None
+            if "target_transforms" not in args.keys():
+                args["target_transforms"] = None
+            
+            forecast_utils.models_reformat(args["models"])
+            print(args)
+            mlf = MLForecast(
+                models =args["models"], 
+                freq= args["freq"],
+                date_features = args["date_features"],
+                target_transforms= args["target_transforms"],
+                lags = args["lags"])
+            
+            mlf.fit(df = input,  fitted=True, 
+                    prediction_intervals = PredictionIntervals(n_windows = forecast_settings["prediction_intervals"]["n_windows"], h = forecast_settings["prediction_intervals"]["h"], 
+                    method = forecast_settings["prediction_intervals"]["method"] ))
+            fc_raw = None
+            fc = None
+            fc_raw = mlf.predict(forecast_settings["h"], 
+            level  = [forecast_settings["prediction_intervals"]["level"]])
+            fc = forecast_utils.fc_to_long(fc = fc_raw, models = args["models"], level = forecast_settings["prediction_intervals"]["level"])
+            fc["label"] = label
+            forecast_label = str(t.date().strftime("%Y-%m-%d"))
+            fc["forecast_label"] = forecast_label
+
+            if fc is not None and len(fc) > 0:
+                fc_log = {
+                    "unique_id": id,
+                    "model": model,
+                    "label": label,
+                    "forecast_label": forecast_label,
+                    "start": fc["ds"].min(),
+                    "end": fc["ds"].max(),
+                    "n_obs": len(fc),
+                    "h": forecast_settings["h"],
+                    "refresh_time": datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                }
+                if fc_log["n_obs"] == fc_log["h"]:
+                    fc_log["success"] = True
+                else:
+                    fc_log["success"] = False
+            else:
+                fc_log = {
+                    "unique_id": id,
+                    "model": model,
+                    "label": forecast_label,
+                    "forecast_label": forecast_label
+                    }
+                fc_log["start"] = None
+                fc_log["end"] = None
+                fc_log["n_obs"] = None
+                fc_log["h"] = forecast_settings["h"]
+                fc_log["refresh_time"] = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                fc_log["success"] = False
+            fc_log["mape"] = None
+            fc_log["rmse"] = None
+            fc_log["coverage"] = None
+            fc_log["score"] = False
+
+            if forecast_log is None:
+                forecast_log = pd.DataFrame([fc_log])
+            else:
+                forecast_log = pd.concat([forecast_log, pd.DataFrame([fc_log])])    
+
+            if forecast is None:
+                forecast = fc
+            else:
+                forecast = pd.concat([forecast, fc])
+
+forecast = forecast.sort_values(by = ["forecast_label", "unique_id"])
+forecast.reset_index(drop=True, inplace=True)
+
+forecast_log = forecast_log.sort_values(by = ["forecast_label", "unique_id"])
+forecast_log.reset_index(drop=True, inplace=True)
+
+forecast.to_csv(forecast_settings["forecast_path"], index = False)
+forecast_log.to_csv(forecast_settings["forecast_log_path"], index = False)
+
+
+```
+
+
+## Scoring the Forecast
+
+Relead the data:
+```{python}
+df = pd.read_csv(data_path)
+ts = df[["period", "subba", "y"]].copy()
+ts["ds"] = pd.to_datetime(ts["period"])
+ts = ts[["ds", "subba", "y"]]
+ts = ts.rename(columns={"subba":"unique_id"})
+
+
+forecast_log = pd.read_csv(forecast_settings["forecast_log_path"])
+update = False
+if any(forecast_log["score"] == False):
+    forecast_log["end"] = pd.to_datetime(forecast_log["end"])
+    forecast = pd.read_csv(forecast_settings["forecast_path"])
+    forecast["ds"] = pd.to_datetime(forecast["ds"])
+
+    for index, row in forecast_log.iterrows():
+        id = row["unique_id"]
+        forecast_label = row["forecast_label"]
+
+        fc = forecast[(forecast["forecast_label"] == forecast_label) & (forecast["unique_id"] == id)]
+
+        fc = fc.merge(ts, left_on = ["unique_id", "ds"], right_on = ["unique_id", "ds"], how="left")
+        forecast_log.at[index, "mape"] = forecast_utils.mape(y = fc["y"], yhat = fc["forecast"])
+        forecast_log.at[index,"rmse"] = forecast_utils.rmse(y = fc["y"], yhat = fc["forecast"])
+        forecast_log.at[index, "coverage"] =  forecast_utils.coverage(y = fc["y"], lower = fc["lower"], upper = fc["upper"])
+        if len(fc) == row["h"]:
+            forecast_log.at[index,"score"] = True
+        update = True
+
+if update:
+    forecast_log.to_csv(forecast_settings["forecast_log_path"], index = False)
+
+GT(forecast_log)
+```
+
+
