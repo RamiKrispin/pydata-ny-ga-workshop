@@ -1871,3 +1871,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 171,NYIS,ZONI,2024-11-12 12:25:50.601020+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 171,NYIS,ZONJ,2024-11-12 12:25:50.603067+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 171,NYIS,ZONK,2024-11-12 12:25:50.605202+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONA,2024-11-12 13:21:51.638482+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONB,2024-11-12 13:21:51.640244+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONC,2024-11-12 13:21:51.642560+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZOND,2024-11-12 13:21:51.644843+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONE,2024-11-12 13:21:51.647282+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONF,2024-11-12 13:21:51.649454+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONG,2024-11-12 13:21:51.651511+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONH,2024-11-12 13:21:51.653620+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONI,2024-11-12 13:21:51.655696+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONJ,2024-11-12 13:21:51.657834+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+172,NYIS,ZONK,2024-11-12 13:21:51.659978+00:00,,2024-11-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
