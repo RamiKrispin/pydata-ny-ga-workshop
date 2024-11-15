@@ -2509,3 +2509,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 229,NYIS,ZONI,2024-11-15 01:05:04.328431+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 229,NYIS,ZONJ,2024-11-15 01:05:04.330557+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 229,NYIS,ZONK,2024-11-15 01:05:04.332634+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONA,2024-11-15 02:55:08.894630+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONB,2024-11-15 02:55:08.896224+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONC,2024-11-15 02:55:08.898725+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZOND,2024-11-15 02:55:08.901386+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONE,2024-11-15 02:55:08.903517+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONF,2024-11-15 02:55:08.905700+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONG,2024-11-15 02:55:08.907758+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONH,2024-11-15 02:55:08.909823+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONI,2024-11-15 02:55:08.911878+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONJ,2024-11-15 02:55:08.913962+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+230,NYIS,ZONK,2024-11-15 02:55:08.916026+00:00,,2024-11-14 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
