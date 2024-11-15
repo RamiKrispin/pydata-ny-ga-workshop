@@ -101,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries">Load Libraries</h2>
-<div id="e0803cc0" class="cell" data-execution_count="1">
+<div id="8b5c88ed" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> eia_api <span class="im">as</span> api</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> eia_data </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> eia_impute <span class="im">as</span> impute</span>
@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="settings" class="level2">
 <h2 class="anchored" data-anchor-id="settings">Settings</h2>
 <p>Load settings:</p>
-<div id="a1e8e0d7" class="cell" data-execution_count="2">
+<div id="b1df74a4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>raw_json <span class="op">=</span> <span class="bu">open</span>(<span class="st">"../settings/settings.json"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>meta_json <span class="op">=</span> json.load(raw_json)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prototype version</span></span>
@@ -137,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>forecast_settings <span class="op">=</span> meta_json[<span class="st">"forecast"</span>]</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>leaderboard_path <span class="op">=</span> meta_json[<span class="st">"backtesting"</span>][<span class="st">"leaderboard_path"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7f59c83a" class="cell" data-execution_count="3">
+<div id="a816a454" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>facets_template <span class="op">=</span> {</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"parent"</span> : <span class="va">None</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"subba"</span> : <span class="va">None</span></span>
@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>offset <span class="op">=</span> meta_json[<span class="st">"refresh"</span>][<span class="st">"offset"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a4819d35" class="cell" data-execution_count="4">
+<div id="1e1a3916" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> api.eia_metadata(api_key <span class="op">=</span> eia_api_key, api_path <span class="op">=</span> api_path)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(metadata.meta.keys())</span>
@@ -157,57 +157,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2024-11-15T08</code></pre>
 </div>
 </div>
-<div id="05807dc6" class="cell" data-execution_count="5">
+<div id="0f0c2bed" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>meta_obj <span class="op">=</span> eia_data.get_metadata(api_key <span class="op">=</span> eia_api_key, api_path <span class="op">=</span> api_path, meta_path <span class="op">=</span> meta_path, series <span class="op">=</span> series, offset <span class="op">=</span> <span class="dv">6</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>GT(meta_obj.request_meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-<div id="zjaclzaltu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gfxykbbgiy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#zjaclzaltu table {
+#gfxykbbgiy table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#zjaclzaltu thead, tbody, tfoot, tr, td, th { border-style: none; }
+#gfxykbbgiy thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#zjaclzaltu p { margin: 0; padding: 0; }
- #zjaclzaltu .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #zjaclzaltu .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #zjaclzaltu .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #zjaclzaltu .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #zjaclzaltu .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #zjaclzaltu .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #zjaclzaltu .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #zjaclzaltu .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #zjaclzaltu .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #zjaclzaltu .gt_column_spanner_outer:first-child { padding-left: 0; }
- #zjaclzaltu .gt_column_spanner_outer:last-child { padding-right: 0; }
- #zjaclzaltu .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #zjaclzaltu .gt_spanner_row { border-bottom-style: hidden; }
- #zjaclzaltu .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #zjaclzaltu .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #zjaclzaltu .gt_from_md> :first-child { margin-top: 0; }
- #zjaclzaltu .gt_from_md> :last-child { margin-bottom: 0; }
- #zjaclzaltu .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #zjaclzaltu .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #zjaclzaltu .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #zjaclzaltu .gt_row_group_first td { border-top-width: 2px; }
- #zjaclzaltu .gt_row_group_first th { border-top-width: 2px; }
- #zjaclzaltu .gt_striped { background-color: rgba(128,128,128,0.05); }
- #zjaclzaltu .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #zjaclzaltu .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #zjaclzaltu .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #zjaclzaltu .gt_left { text-align: left; }
- #zjaclzaltu .gt_center { text-align: center; }
- #zjaclzaltu .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #zjaclzaltu .gt_font_normal { font-weight: normal; }
- #zjaclzaltu .gt_font_bold { font-weight: bold; }
- #zjaclzaltu .gt_font_italic { font-style: italic; }
- #zjaclzaltu .gt_super { font-size: 65%; }
- #zjaclzaltu .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #zjaclzaltu .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#gfxykbbgiy p { margin: 0; padding: 0; }
+ #gfxykbbgiy .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #gfxykbbgiy .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #gfxykbbgiy .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #gfxykbbgiy .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #gfxykbbgiy .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #gfxykbbgiy .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #gfxykbbgiy .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #gfxykbbgiy .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #gfxykbbgiy .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #gfxykbbgiy .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #gfxykbbgiy .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #gfxykbbgiy .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #gfxykbbgiy .gt_spanner_row { border-bottom-style: hidden; }
+ #gfxykbbgiy .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #gfxykbbgiy .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #gfxykbbgiy .gt_from_md> :first-child { margin-top: 0; }
+ #gfxykbbgiy .gt_from_md> :last-child { margin-bottom: 0; }
+ #gfxykbbgiy .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #gfxykbbgiy .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #gfxykbbgiy .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #gfxykbbgiy .gt_row_group_first td { border-top-width: 2px; }
+ #gfxykbbgiy .gt_row_group_first th { border-top-width: 2px; }
+ #gfxykbbgiy .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #gfxykbbgiy .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #gfxykbbgiy .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #gfxykbbgiy .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #gfxykbbgiy .gt_left { text-align: left; }
+ #gfxykbbgiy .gt_center { text-align: center; }
+ #gfxykbbgiy .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #gfxykbbgiy .gt_font_normal { font-weight: normal; }
+ #gfxykbbgiy .gt_font_bold { font-weight: bold; }
+ #gfxykbbgiy .gt_font_italic { font-style: italic; }
+ #gfxykbbgiy .gt_super { font-size: 65%; }
+ #gfxykbbgiy .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #gfxykbbgiy .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
 </div>
 </div>
-<div id="adcbb826" class="cell" data-execution_count="6">
+<div id="21b842d4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> meta_obj.request_meta</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> meta_obj.last_index <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="va">None</span></span>
@@ -394,30 +394,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>meta_new.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 484928, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 646395, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 486393, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 647924, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 488703, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 650262, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 490908, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 652444, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 493310, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 655023, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 495319, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 657590, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 497391, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 659732, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 499399, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 661798, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 501471, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 663928, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 503502, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 666013, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}
 No new data is available
-{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 15, 15, 33, 505590, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}</code></pre>
+{'index': None, 'parent': None, 'subba': None, 'time': datetime.datetime(2024, 11, 15, 16, 17, 52, 668139, tzinfo=datetime.timezone.utc), 'start': NaT, 'end': Timestamp('2024-11-15 02:00:00'), 'start_act': None, 'end_act': None, 'start_match': None, 'end_match': None, 'n_obs': None, 'na': None, 'imputed': 0, 'type': 'refresh', 'update': False, 'success': True, 'comments': 'No new data is available; '}</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+<pre><code>/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -430,14 +430,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -450,14 +450,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -470,14 +470,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -490,14 +490,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -510,14 +510,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -530,14 +530,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -550,14 +550,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -570,14 +570,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -590,14 +590,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -610,14 +610,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -630,14 +630,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -650,14 +650,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -670,14 +670,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -690,14 +690,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -710,14 +710,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -730,14 +730,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -750,14 +750,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -770,14 +770,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:51: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:51: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -790,14 +790,14 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:51: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:51: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
-/tmp/ipykernel_137/2864535603.py:52: FutureWarning:
+/tmp/ipykernel_138/2864535603.py:52: FutureWarning:
 
 ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
@@ -810,7 +810,7 @@ Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
 
 
-/tmp/ipykernel_137/2864535603.py:52: SettingWithCopyWarning:
+/tmp/ipykernel_138/2864535603.py:52: SettingWithCopyWarning:
 
 
 A value is trying to be set on a copy of a slice from a DataFrame
@@ -819,55 +819,55 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </code></pre>
 </div>
 </div>
-<div id="94095cf5" class="cell" data-execution_count="7">
+<div id="83cb88ad" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>GT(meta_new,rowname_col <span class="op">=</span> <span class="st">"index"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<div id="cmyljdqknq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mrswddtzjc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#cmyljdqknq table {
+#mrswddtzjc table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#cmyljdqknq thead, tbody, tfoot, tr, td, th { border-style: none; }
+#mrswddtzjc thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#cmyljdqknq p { margin: 0; padding: 0; }
- #cmyljdqknq .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #cmyljdqknq .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #cmyljdqknq .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #cmyljdqknq .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #cmyljdqknq .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cmyljdqknq .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #cmyljdqknq .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #cmyljdqknq .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #cmyljdqknq .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #cmyljdqknq .gt_column_spanner_outer:first-child { padding-left: 0; }
- #cmyljdqknq .gt_column_spanner_outer:last-child { padding-right: 0; }
- #cmyljdqknq .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #cmyljdqknq .gt_spanner_row { border-bottom-style: hidden; }
- #cmyljdqknq .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #cmyljdqknq .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #cmyljdqknq .gt_from_md> :first-child { margin-top: 0; }
- #cmyljdqknq .gt_from_md> :last-child { margin-bottom: 0; }
- #cmyljdqknq .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #cmyljdqknq .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #cmyljdqknq .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #cmyljdqknq .gt_row_group_first td { border-top-width: 2px; }
- #cmyljdqknq .gt_row_group_first th { border-top-width: 2px; }
- #cmyljdqknq .gt_striped { background-color: rgba(128,128,128,0.05); }
- #cmyljdqknq .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #cmyljdqknq .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #cmyljdqknq .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #cmyljdqknq .gt_left { text-align: left; }
- #cmyljdqknq .gt_center { text-align: center; }
- #cmyljdqknq .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #cmyljdqknq .gt_font_normal { font-weight: normal; }
- #cmyljdqknq .gt_font_bold { font-weight: bold; }
- #cmyljdqknq .gt_font_italic { font-style: italic; }
- #cmyljdqknq .gt_super { font-size: 65%; }
- #cmyljdqknq .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #cmyljdqknq .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#mrswddtzjc p { margin: 0; padding: 0; }
+ #mrswddtzjc .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #mrswddtzjc .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #mrswddtzjc .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #mrswddtzjc .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #mrswddtzjc .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #mrswddtzjc .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #mrswddtzjc .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #mrswddtzjc .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #mrswddtzjc .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #mrswddtzjc .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #mrswddtzjc .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #mrswddtzjc .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #mrswddtzjc .gt_spanner_row { border-bottom-style: hidden; }
+ #mrswddtzjc .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #mrswddtzjc .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #mrswddtzjc .gt_from_md> :first-child { margin-top: 0; }
+ #mrswddtzjc .gt_from_md> :last-child { margin-bottom: 0; }
+ #mrswddtzjc .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #mrswddtzjc .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #mrswddtzjc .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #mrswddtzjc .gt_row_group_first td { border-top-width: 2px; }
+ #mrswddtzjc .gt_row_group_first th { border-top-width: 2px; }
+ #mrswddtzjc .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #mrswddtzjc .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #mrswddtzjc .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #mrswddtzjc .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #mrswddtzjc .gt_left { text-align: left; }
+ #mrswddtzjc .gt_center { text-align: center; }
+ #mrswddtzjc .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #mrswddtzjc .gt_font_normal { font-weight: normal; }
+ #mrswddtzjc .gt_font_bold { font-weight: bold; }
+ #mrswddtzjc .gt_font_italic { font-style: italic; }
+ #mrswddtzjc .gt_super { font-size: 65%; }
+ #mrswddtzjc .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #mrswddtzjc .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -898,7 +898,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONA</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.484928+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.646395+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -917,7 +917,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONB</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.486393+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.647924+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -936,7 +936,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONC</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.488703+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.650262+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -955,7 +955,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZOND</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.490908+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.652444+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -974,7 +974,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONE</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.493310+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.655023+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -993,7 +993,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONF</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.495319+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.657590+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1012,7 +1012,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONG</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.497391+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.659732+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1031,7 +1031,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONH</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.499399+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.661798+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1050,7 +1050,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONI</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.501471+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.663928+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1069,7 +1069,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONJ</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.503502+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.666013+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1088,7 +1088,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_left">NYIS</td>
 <td class="gt_row gt_left">ZONK</td>
-<td class="gt_row gt_right">2024-11-15 15:15:33.505590+00:00</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.668139+00:00</td>
 <td class="gt_row gt_right"><na></na></td>
 <td class="gt_row gt_right">2024-11-15 02:00:00</td>
 <td class="gt_row gt_right"><na></na></td>
@@ -1111,7 +1111,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
         
 </div>
 </div>
-<div id="37ef01b3" class="cell" data-execution_count="8">
+<div id="00f06bbf" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>meta_updated <span class="op">=</span> eia_data.append_metadata(meta_path <span class="op">=</span> meta_path, meta <span class="op">=</span> meta_new, save <span class="op">=</span> save_meta, init <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>GT(meta_updated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1122,52 +1122,52 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 </code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<div id="ntbalipsdo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xfwxrweokc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#ntbalipsdo table {
+#xfwxrweokc table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#ntbalipsdo thead, tbody, tfoot, tr, td, th { border-style: none; }
+#xfwxrweokc thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#ntbalipsdo p { margin: 0; padding: 0; }
- #ntbalipsdo .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #ntbalipsdo .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #ntbalipsdo .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #ntbalipsdo .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #ntbalipsdo .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #ntbalipsdo .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #ntbalipsdo .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #ntbalipsdo .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #ntbalipsdo .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #ntbalipsdo .gt_column_spanner_outer:first-child { padding-left: 0; }
- #ntbalipsdo .gt_column_spanner_outer:last-child { padding-right: 0; }
- #ntbalipsdo .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #ntbalipsdo .gt_spanner_row { border-bottom-style: hidden; }
- #ntbalipsdo .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #ntbalipsdo .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #ntbalipsdo .gt_from_md> :first-child { margin-top: 0; }
- #ntbalipsdo .gt_from_md> :last-child { margin-bottom: 0; }
- #ntbalipsdo .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #ntbalipsdo .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #ntbalipsdo .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #ntbalipsdo .gt_row_group_first td { border-top-width: 2px; }
- #ntbalipsdo .gt_row_group_first th { border-top-width: 2px; }
- #ntbalipsdo .gt_striped { background-color: rgba(128,128,128,0.05); }
- #ntbalipsdo .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #ntbalipsdo .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #ntbalipsdo .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #ntbalipsdo .gt_left { text-align: left; }
- #ntbalipsdo .gt_center { text-align: center; }
- #ntbalipsdo .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #ntbalipsdo .gt_font_normal { font-weight: normal; }
- #ntbalipsdo .gt_font_bold { font-weight: bold; }
- #ntbalipsdo .gt_font_italic { font-style: italic; }
- #ntbalipsdo .gt_super { font-size: 65%; }
- #ntbalipsdo .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #ntbalipsdo .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#xfwxrweokc p { margin: 0; padding: 0; }
+ #xfwxrweokc .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #xfwxrweokc .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #xfwxrweokc .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #xfwxrweokc .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #xfwxrweokc .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #xfwxrweokc .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #xfwxrweokc .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #xfwxrweokc .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #xfwxrweokc .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #xfwxrweokc .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #xfwxrweokc .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #xfwxrweokc .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #xfwxrweokc .gt_spanner_row { border-bottom-style: hidden; }
+ #xfwxrweokc .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #xfwxrweokc .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #xfwxrweokc .gt_from_md> :first-child { margin-top: 0; }
+ #xfwxrweokc .gt_from_md> :last-child { margin-bottom: 0; }
+ #xfwxrweokc .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #xfwxrweokc .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #xfwxrweokc .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #xfwxrweokc .gt_row_group_first td { border-top-width: 2px; }
+ #xfwxrweokc .gt_row_group_first th { border-top-width: 2px; }
+ #xfwxrweokc .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #xfwxrweokc .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #xfwxrweokc .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #xfwxrweokc .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #xfwxrweokc .gt_left { text-align: left; }
+ #xfwxrweokc .gt_center { text-align: center; }
+ #xfwxrweokc .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #xfwxrweokc .gt_font_normal { font-weight: normal; }
+ #xfwxrweokc .gt_font_bold { font-weight: bold; }
+ #xfwxrweokc .gt_font_italic { font-style: italic; }
+ #xfwxrweokc .gt_super { font-size: 65%; }
+ #xfwxrweokc .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #xfwxrweokc .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
@@ -51810,6 +51810,215 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <td class="gt_row gt_center">True</td>
 <td class="gt_row gt_left">No new data is available;</td>
 </tr>
+<tr class="odd">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONA</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.646395+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONB</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.647924+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONC</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.650262+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZOND</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.652444+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONE</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.655023+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONF</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.657590+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONG</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.659732+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONH</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.661798+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONI</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.663928+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONJ</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.666013+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right">244</td>
+<td class="gt_row gt_left">NYIS</td>
+<td class="gt_row gt_left">ZONK</td>
+<td class="gt_row gt_right">2024-11-15 16:17:52.668139+00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">2024-11-15 02:00:00</td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right"><na></na></td>
+<td class="gt_row gt_right">0</td>
+<td class="gt_row gt_left">refresh</td>
+<td class="gt_row gt_center">False</td>
+<td class="gt_row gt_center">True</td>
+<td class="gt_row gt_left">No new data is available;</td>
+</tr>
 </tbody>
 </table>
 
@@ -51821,7 +52030,7 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <section id="plot-the-series" class="level3">
 <h3 class="anchored" data-anchor-id="plot-the-series">Plot the Series</h3>
 <p>We will use Plotly to visualize the series:</p>
-<div id="8ddab93e" class="cell" data-execution_count="9">
+<div id="3c95c28b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> data <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span> <span class="op">=</span> data.sort_values(by <span class="op">=</span> [<span class="st">"subba"</span>, <span class="st">"period"</span>])</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> px.line(<span class="bu">input</span>, x<span class="op">=</span><span class="st">"period"</span>, y<span class="op">=</span><span class="st">"value"</span>, color<span class="op">=</span><span class="st">"subba"</span>)</span>
@@ -51838,21 +52047,21 @@ The behavior of DataFrame concatenation with empty or all-NA entries is deprecat
 <section id="forecast-refresh" class="level2">
 <h2 class="anchored" data-anchor-id="forecast-refresh">Forecast Refresh</h2>
 <p>Reload the data:</p>
-<div id="3be66d87" class="cell" data-execution_count="10">
+<div id="188f5c11" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(data_path)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> df[[<span class="st">"period"</span>, <span class="st">"subba"</span>, <span class="st">"y"</span>]].copy()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ts[<span class="st">"ds"</span>] <span class="op">=</span> pd.to_datetime(ts[<span class="st">"period"</span>])</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> ts[[<span class="st">"ds"</span>, <span class="st">"subba"</span>, <span class="st">"y"</span>]]</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> ts.rename(columns<span class="op">=</span>{<span class="st">"subba"</span>:<span class="st">"unique_id"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_137/4105294232.py:1: DtypeWarning:
+<pre><code>/tmp/ipykernel_138/4105294232.py:1: DtypeWarning:
 
 Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_memory=False.
 </code></pre>
 </div>
 </div>
 <p>Check if new data is available and update the forecast:</p>
-<div id="82494e24" class="cell" data-execution_count="11">
+<div id="3b2136a8" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>forecast_log <span class="op">=</span> pd.read_csv(forecast_settings[<span class="st">"forecast_log_path"</span>])</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>forecast_log <span class="op">=</span> pd.read_csv(forecast_settings[<span class="st">"forecast_log_path"</span>])</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>forecast_log[<span class="st">"end"</span>] <span class="op">=</span> pd.to_datetime(forecast_log[<span class="st">"end"</span>])</span>
@@ -51956,7 +52165,7 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <span id="cb17-101"><a href="#cb17-101" aria-hidden="true" tabindex="-1"></a>    forecast_new.to_csv(forecast_settings[<span class="st">"forecast_path"</span>], index <span class="op">=</span> <span class="va">False</span>)</span>
 <span id="cb17-102"><a href="#cb17-102" aria-hidden="true" tabindex="-1"></a>    forecast_log_new.to_csv(forecast_settings[<span class="st">"forecast_log_path"</span>], index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="05267e57" class="cell" data-execution_count="12">
+<div id="92a4e43d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>forecast_log <span class="op">=</span> pd.read_csv(forecast_settings[<span class="st">"forecast_log_path"</span>])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>update <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">any</span>(forecast_log[<span class="st">"score"</span>] <span class="op">==</span> <span class="va">False</span>):</span>
@@ -51983,52 +52192,52 @@ Columns (4,5,6,8) have mixed types. Specify dtype option on import or set low_me
 <span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>GT(forecast_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<div id="onoycqjkym" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="udtrfbzuff" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#onoycqjkym table {
+#udtrfbzuff table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#onoycqjkym thead, tbody, tfoot, tr, td, th { border-style: none; }
+#udtrfbzuff thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#onoycqjkym p { margin: 0; padding: 0; }
- #onoycqjkym .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #onoycqjkym .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #onoycqjkym .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #onoycqjkym .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #onoycqjkym .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #onoycqjkym .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #onoycqjkym .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #onoycqjkym .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #onoycqjkym .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #onoycqjkym .gt_column_spanner_outer:first-child { padding-left: 0; }
- #onoycqjkym .gt_column_spanner_outer:last-child { padding-right: 0; }
- #onoycqjkym .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #onoycqjkym .gt_spanner_row { border-bottom-style: hidden; }
- #onoycqjkym .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #onoycqjkym .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #onoycqjkym .gt_from_md> :first-child { margin-top: 0; }
- #onoycqjkym .gt_from_md> :last-child { margin-bottom: 0; }
- #onoycqjkym .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #onoycqjkym .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #onoycqjkym .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #onoycqjkym .gt_row_group_first td { border-top-width: 2px; }
- #onoycqjkym .gt_row_group_first th { border-top-width: 2px; }
- #onoycqjkym .gt_striped { background-color: rgba(128,128,128,0.05); }
- #onoycqjkym .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #onoycqjkym .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #onoycqjkym .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #onoycqjkym .gt_left { text-align: left; }
- #onoycqjkym .gt_center { text-align: center; }
- #onoycqjkym .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #onoycqjkym .gt_font_normal { font-weight: normal; }
- #onoycqjkym .gt_font_bold { font-weight: bold; }
- #onoycqjkym .gt_font_italic { font-style: italic; }
- #onoycqjkym .gt_super { font-size: 65%; }
- #onoycqjkym .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #onoycqjkym .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#udtrfbzuff p { margin: 0; padding: 0; }
+ #udtrfbzuff .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #udtrfbzuff .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #udtrfbzuff .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #udtrfbzuff .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #udtrfbzuff .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #udtrfbzuff .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #udtrfbzuff .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #udtrfbzuff .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #udtrfbzuff .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #udtrfbzuff .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #udtrfbzuff .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #udtrfbzuff .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #udtrfbzuff .gt_spanner_row { border-bottom-style: hidden; }
+ #udtrfbzuff .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #udtrfbzuff .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #udtrfbzuff .gt_from_md> :first-child { margin-top: 0; }
+ #udtrfbzuff .gt_from_md> :last-child { margin-bottom: 0; }
+ #udtrfbzuff .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #udtrfbzuff .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #udtrfbzuff .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #udtrfbzuff .gt_row_group_first td { border-top-width: 2px; }
+ #udtrfbzuff .gt_row_group_first th { border-top-width: 2px; }
+ #udtrfbzuff .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #udtrfbzuff .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #udtrfbzuff .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #udtrfbzuff .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #udtrfbzuff .gt_left { text-align: left; }
+ #udtrfbzuff .gt_center { text-align: center; }
+ #udtrfbzuff .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #udtrfbzuff .gt_font_normal { font-weight: normal; }
+ #udtrfbzuff .gt_font_bold { font-weight: bold; }
+ #udtrfbzuff .gt_font_italic { font-style: italic; }
+ #udtrfbzuff .gt_super { font-size: 65%; }
+ #udtrfbzuff .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #udtrfbzuff .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
