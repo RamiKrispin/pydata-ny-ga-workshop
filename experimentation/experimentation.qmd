@@ -18,6 +18,7 @@ import mlflow
 import datetime
 import plotly.graph_objects as go
 from great_tables import GT
+import mlflow
 
 
 from statsforecast import StatsForecast
@@ -40,11 +41,13 @@ from mlforecast.utils import PredictionIntervals
 from window_ops.expanding import expanding_mean
 from lightgbm import LGBMRegressor
 from xgboost import XGBRegressor
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso, LinearRegression, Ridge
+from sklearn.neural_network import MLPRegressor
+from sklearn.ensemble import RandomForestRegressor
 from utilsforecast.plotting import plot_series
 from statistics import mean
 
-import backtesting
+import backtesting as bkt
 ```
 
 
@@ -106,44 +109,51 @@ Loading the backtesting settings:
 bkt_settings = meta_json["backtesting"]["settings"]
 models_settings = meta_json["backtesting"]["models"]
 leaderboard_path = meta_json["backtesting"]["leaderboard_path"]
+mlflow_path = meta_json["backtesting"]["mlflow_path"]
 models_settings.keys()
 ```
 
 
 
+
+
 ```{python}
-bkt = backtesting.backtesting(input = ts, 
-models = models_settings, 
-settings = bkt_settings)
+exp = bkt.backtesting()
+exp.add_input(input = ts)
+exp.add_settings(models = models_settings, settings = bkt_settings)
+
+
 ```
 
-
-
 ```{python}
-bkt.head()
-```
-
-
-
-
-```{python}
-score = backtesting.bkt_score(bkt = bkt)
-score
-
-GT(score.score.head(10))
+exp.run_backtesting()
 ```
 
 
 ```{python}
-GT(score.leaderboard.head(10))
+exp.log_backtesting(mlflow_path = mlflow_path, verbose = False)
 ```
 
 
 ```{python}
-GT(score.top)
+GT(exp.score.head())
 ```
 
 ```{python}
-score.top.to_csv(leaderboard_path, index = False) 
+GT(exp.leaderboard.head(10))
+```
+
+
+```{python}
+GT(exp.top)
+```
+
+
+
+
+
+
+```{python}
+exp.top.to_csv(leaderboard_path, index = False) 
 ```
 
