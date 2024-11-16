@@ -6,7 +6,24 @@ from mlforecast.utils import PredictionIntervals
 from window_ops.expanding import expanding_mean
 from lightgbm import LGBMRegressor
 from xgboost import XGBRegressor
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso, LinearRegression, Ridge
+from sklearn.neural_network import MLPRegressor
+from sklearn.ensemble import RandomForestRegressor
+
+
+
+class forecast:
+    def __init__(self):
+        pass
+    def add_input(self,input):
+        self.input = input
+
+    def add_settings(self, models, settings):
+        self.models = models
+        self.settings = settings
+
+
+
 
 
 def models_reformat(models):
