@@ -7800,3 +7800,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 710,NYIS,ZONI,2024-12-06 03:00:14.639465+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 710,NYIS,ZONJ,2024-12-06 03:00:14.641586+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 710,NYIS,ZONK,2024-12-06 03:00:14.643688+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONA,2024-12-06 03:36:02.442447+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONB,2024-12-06 03:36:02.443954+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONC,2024-12-06 03:36:02.446233+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZOND,2024-12-06 03:36:02.448422+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONE,2024-12-06 03:36:02.450573+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONF,2024-12-06 03:36:02.452797+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONG,2024-12-06 03:36:02.455200+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONH,2024-12-06 03:36:02.457292+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONI,2024-12-06 03:36:02.459334+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONJ,2024-12-06 03:36:02.461428+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+711,NYIS,ZONK,2024-12-06 03:36:02.463492+00:00,,2024-12-05 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
