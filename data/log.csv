@@ -8823,3 +8823,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 803,NYIS,ZONI,2024-12-10 06:21:15.197595+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 803,NYIS,ZONJ,2024-12-10 06:21:15.199745+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 803,NYIS,ZONK,2024-12-10 06:21:15.201838+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONA,2024-12-10 07:15:00.234877+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONB,2024-12-10 07:15:00.236361+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONC,2024-12-10 07:15:00.238739+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZOND,2024-12-10 07:15:00.241136+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONE,2024-12-10 07:15:00.243229+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONF,2024-12-10 07:15:00.245266+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONG,2024-12-10 07:15:00.247358+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONH,2024-12-10 07:15:00.249457+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONI,2024-12-10 07:15:00.251517+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONJ,2024-12-10 07:15:00.253625+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+804,NYIS,ZONK,2024-12-10 07:15:00.255687+00:00,,2024-12-09 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
