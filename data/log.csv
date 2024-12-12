@@ -9351,3 +9351,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 851,NYIS,ZONI,2024-12-12 08:19:38.340227+00:00,,2024-12-11 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 851,NYIS,ZONJ,2024-12-12 08:19:38.342318+00:00,,2024-12-11 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 851,NYIS,ZONK,2024-12-12 08:19:38.344339+00:00,,2024-12-11 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONA,2024-12-12 09:16:00.042626+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONB,2024-12-12 09:16:00.044213+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONC,2024-12-12 09:16:00.046481+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZOND,2024-12-12 09:16:00.048797+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONE,2024-12-12 09:16:00.051008+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONF,2024-12-12 09:16:00.053534+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONG,2024-12-12 09:16:00.055661+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONH,2024-12-12 09:16:00.057700+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONI,2024-12-12 09:16:00.059781+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONJ,2024-12-12 09:16:00.061816+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+852,NYIS,ZONK,2024-12-12 09:16:00.063878+00:00,,2024-12-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
