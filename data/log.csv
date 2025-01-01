@@ -14389,3 +14389,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 1309,NYIS,ZONI,2025-01-01 08:17:43.198720+00:00,,2024-12-31 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 1309,NYIS,ZONJ,2025-01-01 08:17:43.200833+00:00,,2024-12-31 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 1309,NYIS,ZONK,2025-01-01 08:17:43.202919+00:00,,2024-12-31 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONA,2025-01-01 09:14:34.140640+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONB,2025-01-01 09:14:34.142170+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONC,2025-01-01 09:14:34.144500+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZOND,2025-01-01 09:14:34.146661+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONE,2025-01-01 09:14:34.148995+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONF,2025-01-01 09:14:34.151299+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONG,2025-01-01 09:14:34.153373+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONH,2025-01-01 09:14:34.155478+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONI,2025-01-01 09:14:34.157546+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONJ,2025-01-01 09:14:34.159664+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1310,NYIS,ZONK,2025-01-01 09:14:34.161758+00:00,,2025-01-01 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
