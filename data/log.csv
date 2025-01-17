@@ -18481,3 +18481,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 1681,NYIS,ZONI,2025-01-17 14:12:34.861246+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 1681,NYIS,ZONJ,2025-01-17 14:12:34.863309+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 1681,NYIS,ZONK,2025-01-17 14:12:34.865436+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONA,2025-01-17 15:14:00.166120+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONB,2025-01-17 15:14:00.167795+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONC,2025-01-17 15:14:00.170293+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZOND,2025-01-17 15:14:00.173186+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONE,2025-01-17 15:14:00.175703+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONF,2025-01-17 15:14:00.177779+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONG,2025-01-17 15:14:00.179878+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONH,2025-01-17 15:14:00.181957+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONI,2025-01-17 15:14:00.184034+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONJ,2025-01-17 15:14:00.186107+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1682,NYIS,ZONK,2025-01-17 15:14:00.188273+00:00,,2025-01-17 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
