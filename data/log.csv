@@ -20835,3 +20835,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 1895,NYIS,ZONI,2025-01-26 23:12:30.652042+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 1895,NYIS,ZONJ,2025-01-26 23:12:30.654231+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 1895,NYIS,ZONK,2025-01-26 23:12:30.656397+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONA,2025-01-27 01:01:23.816775+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONB,2025-01-27 01:01:23.818645+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONC,2025-01-27 01:01:23.821405+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZOND,2025-01-27 01:01:23.823453+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONE,2025-01-27 01:01:23.825623+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONF,2025-01-27 01:01:23.827713+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONG,2025-01-27 01:01:23.829898+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONH,2025-01-27 01:01:23.831984+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONI,2025-01-27 01:01:23.834081+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONJ,2025-01-27 01:01:23.836156+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+1896,NYIS,ZONK,2025-01-27 01:01:23.838279+00:00,,2025-01-26 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
