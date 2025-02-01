@@ -22221,3 +22221,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 2021,NYIS,ZONI,2025-02-01 11:10:25.036159+00:00,,2025-01-31 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2021,NYIS,ZONJ,2025-02-01 11:10:25.038282+00:00,,2025-01-31 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2021,NYIS,ZONK,2025-02-01 11:10:25.040396+00:00,,2025-01-31 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONA,2025-02-01 12:22:15.033886+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONB,2025-02-01 12:22:15.035695+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONC,2025-02-01 12:22:15.038259+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZOND,2025-02-01 12:22:15.040633+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONE,2025-02-01 12:22:15.043131+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONF,2025-02-01 12:22:15.045459+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONG,2025-02-01 12:22:15.047832+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONH,2025-02-01 12:22:15.050177+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONI,2025-02-01 12:22:15.052733+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONJ,2025-02-01 12:22:15.054800+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2022,NYIS,ZONK,2025-02-01 12:22:15.056911+00:00,,2025-02-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
