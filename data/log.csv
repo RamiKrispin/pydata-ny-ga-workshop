@@ -25246,3 +25246,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 2296,NYIS,ZONI,2025-02-13 10:15:01.348048+00:00,,2025-02-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2296,NYIS,ZONJ,2025-02-13 10:15:01.350049+00:00,,2025-02-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2296,NYIS,ZONK,2025-02-13 10:15:01.352094+00:00,,2025-02-12 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONA,2025-02-13 11:12:48.710301+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONB,2025-02-13 11:12:48.712194+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONC,2025-02-13 11:12:48.714615+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZOND,2025-02-13 11:12:48.716914+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONE,2025-02-13 11:12:48.719131+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONF,2025-02-13 11:12:48.721296+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONG,2025-02-13 11:12:48.723566+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONH,2025-02-13 11:12:48.726040+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONI,2025-02-13 11:12:48.728204+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONJ,2025-02-13 11:12:48.730357+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2297,NYIS,ZONK,2025-02-13 11:12:48.732520+00:00,,2025-02-13 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
