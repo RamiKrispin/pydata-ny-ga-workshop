@@ -30108,3 +30108,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 2738,NYIS,ZONI,2025-03-05 10:15:55.505430+00:00,,2025-03-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2738,NYIS,ZONJ,2025-03-05 10:15:55.507876+00:00,,2025-03-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2738,NYIS,ZONK,2025-03-05 10:15:55.509981+00:00,,2025-03-04 02:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONA,2025-03-05 11:12:34.118883+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONB,2025-03-05 11:12:34.120630+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONC,2025-03-05 11:12:34.123072+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZOND,2025-03-05 11:12:34.125385+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONE,2025-03-05 11:12:34.127632+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONF,2025-03-05 11:12:34.129883+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONG,2025-03-05 11:12:34.132117+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONH,2025-03-05 11:12:34.134393+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONI,2025-03-05 11:12:34.136624+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONJ,2025-03-05 11:12:34.138853+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2739,NYIS,ZONK,2025-03-05 11:12:34.141075+00:00,,2025-03-05 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
