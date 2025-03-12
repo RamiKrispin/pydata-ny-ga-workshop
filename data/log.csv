@@ -31802,3 +31802,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 2892,NYIS,ZONI,2025-03-12 02:52:38.034450+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2892,NYIS,ZONJ,2025-03-12 02:52:38.036756+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 2892,NYIS,ZONK,2025-03-12 02:52:38.039333+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONA,2025-03-12 03:24:00.406130+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONB,2025-03-12 03:24:00.407901+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONC,2025-03-12 03:24:00.410207+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZOND,2025-03-12 03:24:00.412407+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONE,2025-03-12 03:24:00.414649+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONF,2025-03-12 03:24:00.417029+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONG,2025-03-12 03:24:00.419293+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONH,2025-03-12 03:24:00.421539+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONI,2025-03-12 03:24:00.424160+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONJ,2025-03-12 03:24:00.426386+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+2893,NYIS,ZONK,2025-03-12 03:24:00.428743+00:00,,2025-03-11 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
