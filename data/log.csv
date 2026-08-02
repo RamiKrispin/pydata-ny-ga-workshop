@@ -138425,3 +138425,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 12585,NYIS,ZONI,2026-08-01 23:52:56.691280+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 12585,NYIS,ZONJ,2026-08-01 23:52:56.693458+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 12585,NYIS,ZONK,2026-08-01 23:52:56.695647+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONA,2026-08-02 02:10:19.937737+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONB,2026-08-02 02:10:19.939354+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONC,2026-08-02 02:10:19.941855+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZOND,2026-08-02 02:10:19.944023+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONE,2026-08-02 02:10:19.946138+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONF,2026-08-02 02:10:19.948334+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONG,2026-08-02 02:10:19.950442+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONH,2026-08-02 02:10:19.952534+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONI,2026-08-02 02:10:19.954679+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONJ,2026-08-02 02:10:19.956811+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+12586,NYIS,ZONK,2026-08-02 02:10:19.958995+00:00,,2026-08-01 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
