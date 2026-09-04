@@ -144112,3 +144112,14 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 13102,NYIS,ZONI,2026-09-04 18:00:13.748655+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 13102,NYIS,ZONJ,2026-09-04 18:00:13.750569+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
 13102,NYIS,ZONK,2026-09-04 18:00:13.752459+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONA,2026-09-04 20:32:21.577393+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONB,2026-09-04 20:32:21.579584+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONC,2026-09-04 20:32:21.582401+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZOND,2026-09-04 20:32:21.585360+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONE,2026-09-04 20:32:21.588315+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONF,2026-09-04 20:32:21.591338+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONG,2026-09-04 20:32:21.593773+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONH,2026-09-04 20:32:21.596451+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONI,2026-09-04 20:32:21.598751+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONJ,2026-09-04 20:32:21.601002+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
+13103,NYIS,ZONK,2026-09-04 20:32:21.603315+00:00,,2026-09-04 01:00:00,,,,,,,0,refresh,False,True,No new data is available; 
